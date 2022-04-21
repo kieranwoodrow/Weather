@@ -17,6 +17,7 @@
 		D6E12E052811596300C8D13F /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E042811596300C8D13F /* WeatherTests.swift */; };
 		D6E12E0F2811596300C8D13F /* WeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E0E2811596300C8D13F /* WeatherUITests.swift */; };
 		D6E12E112811596300C8D13F /* WeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E102811596300C8D13F /* WeatherUITestsLaunchTests.swift */; };
+		D6E12E2F2811F44D00C8D13F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E2E2811F44D00C8D13F /* CustomErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		D6E12E0A2811596300C8D13F /* WeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6E12E0E2811596300C8D13F /* WeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITests.swift; sourceTree = "<group>"; };
 		D6E12E102811596300C8D13F /* WeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D6E12E2E2811F44D00C8D13F /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 		D6E12E26281165BF00C8D13F /* UI Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				D6E12E2E2811F44D00C8D13F /* CustomErrors.swift */,
 			);
 			path = "UI Extentions";
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6E12DF52811595F00C8D13F /* Weather.xcdatamodeld in Sources */,
+				D6E12E2F2811F44D00C8D13F /* CustomErrors.swift in Sources */,
 				D6E12DEF2811595F00C8D13F /* ViewController.swift in Sources */,
 				D6E12DEB2811595F00C8D13F /* AppDelegate.swift in Sources */,
 				D6E12DED2811595F00C8D13F /* SceneDelegate.swift in Sources */,
