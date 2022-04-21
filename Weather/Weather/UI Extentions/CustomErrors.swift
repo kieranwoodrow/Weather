@@ -42,7 +42,6 @@ enum CustomError: Error, LocalizedError {
 }
 
 extension UIViewController {
-    
     func displayErrorAlert(title: CustomError, errorMessage: CustomError, buttonTitle: String) {
         let alert = UIAlertController(title: title.errorDescription,
                                       message: errorMessage.failureReason,
