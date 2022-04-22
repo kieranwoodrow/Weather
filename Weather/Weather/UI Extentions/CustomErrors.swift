@@ -34,9 +34,9 @@ enum CustomError: Error, LocalizedError {
         case .invalidData:
             return "The data is invalid"
         case .internalError:
-            return "There was an internal error"
+            return "There was an internal error from the API"
         case .parsingError:
-            return "There was a parsing error"
+            return "There was an error decoding the data from the API "
         }
     }
 }
