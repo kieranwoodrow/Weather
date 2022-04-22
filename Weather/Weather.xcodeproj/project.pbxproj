@@ -18,6 +18,8 @@
 		D6E12E0F2811596300C8D13F /* WeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E0E2811596300C8D13F /* WeatherUITests.swift */; };
 		D6E12E112811596300C8D13F /* WeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E102811596300C8D13F /* WeatherUITestsLaunchTests.swift */; };
 		D6E12E2F2811F44D00C8D13F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E2E2811F44D00C8D13F /* CustomErrors.swift */; };
+		D6E12E332812A44700C8D13F /* ServiceLayerCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E322812A44700C8D13F /* ServiceLayerCall.swift */; };
+		D6E12E352812A47100C8D13F /* ServiceLayerEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E342812A47100C8D13F /* ServiceLayerEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		D6E12E0E2811596300C8D13F /* WeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITests.swift; sourceTree = "<group>"; };
 		D6E12E102811596300C8D13F /* WeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D6E12E2E2811F44D00C8D13F /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
+		D6E12E322812A44700C8D13F /* ServiceLayerCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayerCall.swift; sourceTree = SOURCE_ROOT; };
+		D6E12E342812A47100C8D13F /* ServiceLayerEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayerEnums.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,8 @@
 		D6E12E252811656800C8D13F /* Service Layer */ = {
 			isa = PBXGroup;
 			children = (
+				D6E12E322812A44700C8D13F /* ServiceLayerCall.swift */,
+				D6E12E342812A47100C8D13F /* ServiceLayerEnums.swift */,
 			);
 			path = "Service Layer";
 			sourceTree = "<group>";
@@ -368,8 +374,10 @@
 				D6E12DF52811595F00C8D13F /* Weather.xcdatamodeld in Sources */,
 				D6E12E2F2811F44D00C8D13F /* CustomErrors.swift in Sources */,
 				D6E12DEF2811595F00C8D13F /* ViewController.swift in Sources */,
+				D6E12E332812A44700C8D13F /* ServiceLayerCall.swift in Sources */,
 				D6E12DEB2811595F00C8D13F /* AppDelegate.swift in Sources */,
 				D6E12DED2811595F00C8D13F /* SceneDelegate.swift in Sources */,
+				D6E12E352812A47100C8D13F /* ServiceLayerEnums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
