@@ -20,7 +20,6 @@ func serviceCall<Generic: Codable>(with request: URLRequest, model: Generic.Type
                 completion(.failure(.invalidData))
                 return
             }
-            print("Valid data")
             let decodedObject = try JSONDecoder().decode(model, from: safeData)
             DispatchQueue.main.async {
                 completion(Result.success(decodedObject))

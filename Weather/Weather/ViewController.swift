@@ -16,9 +16,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherViewModel.getWeather()
         setTableView()
-        
+        setWeatherViewModel()
     }
     
     private func setTableView() {
@@ -26,6 +25,10 @@ class ViewController: UIViewController {
         testtableview.dataSource = self
     }
     
+    private func setWeatherViewModel() {
+        weatherViewModel.weatherList()
+        weatherViewModel.weather()
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -42,7 +45,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.textLabel!.text = String(weatherViewModel.currentTemp)
-        print(weatherViewModel.currentTemp)
         return cell
     }
     
