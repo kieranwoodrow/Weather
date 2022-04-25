@@ -14,9 +14,10 @@ protocol ViewModelDelegate: AnyObject {
 
 class WeatherViewModel {
     
-    private var repository: WeatherRepositoryType?
-    private var weather: WeatherList?
+    private var currentWeather: WeatherResponse?
+    private var forcastedWeather: WeatherList?
     private weak var delegate: ViewModelDelegate?
+    private var repository: WeatherRepositoryType?
     
     init(repository: WeatherRepositoryType,
          delegate: ViewModelDelegate) {
@@ -24,31 +25,45 @@ class WeatherViewModel {
         self.delegate = delegate
     }
     
+    var forcastedTemp: Double {
+        return forcastedWeather?.weatherList?[0].temperature?.currentTemp ?? 0.0
+    }
+    
     var currentTemp: Double {
-        return weather?.weatherList?[0].temperature?.currentTemp ?? 0.0
+        return currentWeather?.temperature?.currentTemp ?? 0.0
     }
     
     var minTemp: Double {
-        return weather?.weatherList?[0].temperature?.minTemp ?? 0.0
+        return currentWeather?.temperature?.minTemp ?? 0.0
     }
     
     var maxTemp: Double {
-        return weather?.weatherList?[0].temperature?.maxTemp ?? 0.0
+        return currentWeather?.temperature?.maxTemp ?? 0.0
     }
     
     var condition: String {
-        return weather?.weatherList?[0].weather?[0].weatherDescription ?? "none"
+        return currentWeather?.weather?[0].weatherDescription ?? ""
     }
     
-    func getWeather() {
-        repository?.fetchWeather(lat: "-26.02", long: "28.00", completion: { [weak self] result in
+    func weather() {
+        repository?.fetchCurrentWeather(lat: "-26.02", long: "28.00", completion: { [weak self] result in
             switch result {
-            case .success(let weatherResponse):
-                self?.weather = weatherResponse
-                print(weatherResponse)
+            case .success(let weather):
+                self?.currentWeather = weather
                 self?.delegate?.reloadView()
             case .failure(let error):
-                print(error)
+                self?.delegate?.show(error: error)
+            }
+        })
+    }
+    
+    func weatherList() {
+        repository?.fetchForcastedWeather(lat: "-26.02", long: "28.00", completion: { [weak self] result in
+            switch result {
+            case .success(let weatherList):
+                self?.forcastedWeather = weatherList
+                self?.delegate?.reloadView()
+            case .failure(let error):
                 self?.delegate?.show(error: error)
             }
         })

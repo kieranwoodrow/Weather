@@ -7,15 +7,24 @@
 
 import Foundation
 
-typealias WeatherResult = (Result<WeatherList, CustomError>) -> Void
+typealias ForcastedWeather = (Result<WeatherList, CustomError>) -> Void
+typealias CurrentWeather = (Result<WeatherResponse, CustomError>) -> Void
 
 protocol WeatherRepositoryType: AnyObject {
-    func fetchWeather(lat: String, long: String, completion: @escaping(WeatherResult))
+    func fetchForcastedWeather(lat: String, long: String, completion: @escaping(ForcastedWeather))
+    func fetchCurrentWeather(lat: String, long: String, completion: @escaping (CurrentWeather))
 }
 
 class WeatherRepository: WeatherRepositoryType {
-    func fetchWeather(lat: String, long: String, completion: @escaping (WeatherResult)) {
-        let url = Endpoint().get(lat: lat, long: long)
+    func fetchForcastedWeather(lat: String, long: String, completion: @escaping (ForcastedWeather)) {
+        let url = Endpoint().forcast(lat: lat, long: long)
+        request(endpoint: url,
+                method: HTTPMethod.GET,
+                completion: completion)
+    }
+    
+    func fetchCurrentWeather(lat: String, long: String, completion: @escaping (CurrentWeather)) {
+        let url = Endpoint().current(lat: lat, long: long)
         request(endpoint: url,
                 method: HTTPMethod.GET,
                 completion: completion)
