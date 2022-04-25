@@ -8,7 +8,11 @@
 import Foundation
 
 struct Endpoint {
-    func get(lat: String, long: String) -> String {
+    func forcast(lat: String, long: String) -> String {
         return Constants.focastedWeather + "?lat=\(lat)&lon=\(long)&appid=\(Constants.apiKey)&units=metric&cnt=5"
+    }
+    
+    func current(lat: String, long: String) -> String {
+        return Constants.currrentWeather + "?lat=\(lat)&lon=\(long)&appid=\(Constants.apiKey)&units=metric"
     }
 }
