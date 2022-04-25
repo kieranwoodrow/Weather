@@ -8,7 +8,7 @@
 import Foundation
 
 struct Constants {
-    static let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String
     static let currrentWeather = "https://api.openweathermap.org/data/2.5/weather"
     static let focastedWeather = "https://api.openweathermap.org/data/2.5/forecast"
+    static let apiKey = Apikey().apiKey
 }
