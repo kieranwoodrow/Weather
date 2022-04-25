@@ -25,24 +25,24 @@ class WeatherViewModel {
         self.delegate = delegate
     }
     
-    var forcastedTemp: Double {
-        return forcastedWeather?.weatherList?[0].temperature?.currentTemp ?? 0.0
+    var forcastedTemp: Int {
+        return Int(forcastedWeather?.weatherList?[0].temperature?.currentTemp ?? 0.0)
     }
     
-    var currentTemp: Double {
-        return currentWeather?.temperature?.currentTemp ?? 0.0
+    var currentTemp: Int {
+        return Int(currentWeather?.temperature?.currentTemp ?? 0.0)
     }
     
-    var minTemp: Double {
-        return currentWeather?.temperature?.minTemp ?? 0.0
+    var minTemp: Int {
+        return Int(currentWeather?.temperature?.minTemp ?? 0.0)
     }
     
-    var maxTemp: Double {
-        return currentWeather?.temperature?.maxTemp ?? 0.0
+    var maxTemp: Int {
+        return Int(currentWeather?.temperature?.maxTemp ?? 0.0)
     }
     
     var condition: String {
-        return currentWeather?.weather?[0].weatherDescription ?? ""
+        return currentWeather?.weather?[0].weatherDescription ?? "--"
     }
     
     func weather() {
