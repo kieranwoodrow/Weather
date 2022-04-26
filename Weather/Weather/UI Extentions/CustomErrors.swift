@@ -13,6 +13,7 @@ enum CustomError: Error, LocalizedError {
     case invalidData
     case internalError
     case parsingError
+    case unsuccessfullWeatherApiCall
     
     var errorDescription: String {
         switch self {
@@ -24,6 +25,8 @@ enum CustomError: Error, LocalizedError {
             return "Internal error"
         case .parsingError:
             return "Passing error"
+        case .unsuccessfullWeatherApiCall:
+            return "Api call was unsuccessful"
         }
     }
     
@@ -37,6 +40,8 @@ enum CustomError: Error, LocalizedError {
             return "There was an internal error from the API"
         case .parsingError:
             return "There was an error decoding the data from the API "
+        case .unsuccessfullWeatherApiCall:
+            return "There was an error retrieving the weather data "
         }
     }
 }
