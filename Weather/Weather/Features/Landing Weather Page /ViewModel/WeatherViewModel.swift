@@ -25,6 +25,10 @@ class WeatherViewModel {
         self.delegate = delegate
     }
     
+    var weatherListCount: Int {
+        return forcastedWeather?.weatherList?.count ?? 0
+    }
+    
     var forcastedTemp: Int {
         return Int(forcastedWeather?.weatherList?[0].temperature?.currentTemp ?? 0.0)
     }
