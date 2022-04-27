@@ -28,8 +28,7 @@
 		D6E12E602815EEAD00C8D13F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E5F2815EEAD00C8D13F /* WeatherViewController.swift */; };
 		D6E12E6C2819413600C8D13F /* Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E6B2819413600C8D13F /* Borders.swift */; };
 		D6E12E6F281943C500C8D13F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E6E281943C500C8D13F /* Date.swift */; };
-		D6E12E7128196CED00C8D13F /* ForcastedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E7028196CED00C8D13F /* ForcastedTableViewCell.swift */; };
-
+		D6E12E7C2819A57C00C8D13F /* ForcastedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E7B2819A57C00C8D13F /* ForcastedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +75,7 @@
 		D6E12E5F2815EEAD00C8D13F /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		D6E12E6B2819413600C8D13F /* Borders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borders.swift; sourceTree = "<group>"; };
 		D6E12E6E281943C500C8D13F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		D6E12E7028196CED00C8D13F /* ForcastedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastedTableViewCell.swift; sourceTree = "<group>"; };
-
+		D6E12E7B2819A57C00C8D13F /* ForcastedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +126,6 @@
 		D6E12DE92811595F00C8D13F /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				D6E12E4328143CB800C8D13F /* Config Files */,
 				D6E12E2028115B5300C8D13F /* Supporting Files */,
 				D6E12E4328143CB800C8D13F /* Config Files */,
 				D6E12E1E28115AFC00C8D13F /* App Delegate */,
@@ -283,7 +280,7 @@
 		D6E12E612816C70800C8D13F /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
-				D6E12E7028196CED00C8D13F /* ForcastedTableViewCell.swift */,
+				D6E12E7B2819A57C00C8D13F /* ForcastedTableViewCell.swift */,
 			);
 			path = "Custom UI";
 			sourceTree = "<group>";
@@ -345,65 +342,6 @@
 				D6E12E6E281943C500C8D13F /* Date.swift */,
 			);
 			path = Date;
-			sourceTree = "<group>";
-		};
-		D6E12E4328143CB800C8D13F /* Config Files */ = {
-			isa = PBXGroup;
-			children = (
-				D6E12E4428143CE700C8D13F /* Config.xcconfig */,
-			);
-			path = "Config Files";
-			sourceTree = "<group>";
-		};
-		D6E12E512815AB5400C8D13F /* Landing Weather Page  */ = {
-			isa = PBXGroup;
-			children = (
-				D6E12E612816C70800C8D13F /* Custom UI */,
-				D6E12E542815EDF400C8D13F /* Repository */,
-				D6E12E572815EE1900C8D13F /* Model */,
-				D6E12E552815EDFE00C8D13F /* ViewModel */,
-				D6E12E562815EE0800C8D13F /* ViewController */,
-			);
-			path = "Landing Weather Page ";
-			sourceTree = "<group>";
-		};
-		D6E12E542815EDF400C8D13F /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				D6E12E582815EE6600C8D13F /* WeatherRepository.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		D6E12E552815EDFE00C8D13F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				D6E12E5D2815EE9A00C8D13F /* WeatherViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		D6E12E562815EE0800C8D13F /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				D6E12E5F2815EEAD00C8D13F /* WeatherViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		D6E12E572815EE1900C8D13F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D6E12E5A2815EE7A00C8D13F /* WeatherModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D6E12E612816C70800C8D13F /* Custom UI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Custom UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -563,9 +501,9 @@
 				D6E12E602815EEAD00C8D13F /* WeatherViewController.swift in Sources */,
 				D6E12DF52811595F00C8D13F /* Weather.xcdatamodeld in Sources */,
 				D6E12E2F2811F44D00C8D13F /* CustomErrors.swift in Sources */,
-				D6E12E7128196CED00C8D13F /* ForcastedTableViewCell.swift in Sources */,
 				D6E12E5B2815EE7A00C8D13F /* WeatherModel.swift in Sources */,
 				D6E12E332812A44700C8D13F /* ServiceLayerCall.swift in Sources */,
+				D6E12E7C2819A57C00C8D13F /* ForcastedTableViewCell.swift in Sources */,
 				D6E12E402814379F00C8D13F /* Constants.swift in Sources */,
 				D6E12E6C2819413600C8D13F /* Borders.swift in Sources */,
 				D6E12DEB2811595F00C8D13F /* AppDelegate.swift in Sources */,
