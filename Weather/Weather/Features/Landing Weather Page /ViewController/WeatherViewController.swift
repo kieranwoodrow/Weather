@@ -10,20 +10,20 @@ import Foundation
 
 class WeatherViewController: UIViewController {
     
+    @IBOutlet weak private var tempValue: UILabel!
+    @IBOutlet weak private var tempCondition: UILabel!
     @IBOutlet weak private var currentTempView: UIView!
     @IBOutlet weak private var minTemp: UILabel!
     @IBOutlet weak private var currentTemp: UILabel!
     @IBOutlet weak private var maxTemp: UILabel!
     @IBOutlet weak private var forcastedTableView: UITableView!
-    @IBOutlet weak private var tempValue: UILabel!
-    @IBOutlet weak private var tempCondition: UILabel!
     
     private lazy var weatherViewModel = WeatherViewModel(repository: WeatherRepository(),
                                                          delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setViewController()
+        setWeatherViewController()
     }
     
     private func setTableView() {
@@ -44,7 +44,7 @@ class WeatherViewController: UIViewController {
         maxTemp.text = String(weatherViewModel.maxTemp) + "˚"
     }
     
-    private func setViewController() {
+    private func setWeatherViewController() {
         setTableView()
         setWeatherViewModel()
         currentTempView.addBorder(side: .bottom, color: .white, width: 0.5)
