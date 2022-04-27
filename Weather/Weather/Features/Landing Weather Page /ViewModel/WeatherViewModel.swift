@@ -18,19 +18,38 @@ class WeatherViewModel {
     private var forcastedWeather: WeatherList?
     private weak var delegate: ViewModelDelegate?
     private var repository: WeatherRepositoryType?
+    private var upcomingDays: [String] = []
+    private var date = Date()
     
     init(repository: WeatherRepositoryType,
          delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
+        self.nextFiveDays()
+    }
+    
+    func nextFiveDays() {
+        upcomingDays = date.nextFiveDays(date: date.self)
+    }
+    
+    func day(atIndex: Int) -> String {
+        return upcomingDays[atIndex]
+    }
+    
+    var upcomingDaysCount: Int {
+        return upcomingDays.count
     }
     
     var weatherListCount: Int {
         return forcastedWeather?.weatherList?.count ?? 0
     }
     
-    var forcastedTemp: Int {
-        return Int(forcastedWeather?.weatherList?[0].temperature?.currentTemp ?? 0.0)
+    func forcastedTemp(atIndex: Int) -> Int {
+        return Int(forcastedWeather?.weatherList?[atIndex].temperature?.currentTemp ?? 0.0)
+    }
+    
+    func forcastedCondition(atIndex: Int) -> String {
+        return forcastedWeather?.weatherList?[0].weather?[0].weatherDescription ?? "--"
     }
     
     var currentTemp: Int {
