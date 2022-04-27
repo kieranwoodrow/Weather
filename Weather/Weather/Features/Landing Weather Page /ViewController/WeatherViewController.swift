@@ -17,7 +17,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak private var currentTemp: UILabel!
     @IBOutlet weak private var maxTemp: UILabel!
     @IBOutlet weak private var forcastedTableView: UITableView!
-
+    
     private lazy var weatherViewModel = WeatherViewModel(repository: WeatherRepository(),
                                                          delegate: self)
     
