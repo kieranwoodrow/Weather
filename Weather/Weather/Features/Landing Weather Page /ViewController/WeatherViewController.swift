@@ -23,7 +23,7 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setViewController()
+        setWeatherViewController()
     }
     
     private func setTableView() {
@@ -44,11 +44,10 @@ class WeatherViewController: UIViewController {
         maxTemp.text = String(weatherViewModel.maxTemp) + "˚"
     }
     
-    private func setViewController() {
+    private func setWeatherViewController() {
         setTableView()
         setWeatherViewModel()
         currentTempView.addBorder(side: .bottom, color: .white, width: 0.5)
-        
     }
 }
 
