@@ -207,18 +207,4 @@ class WeatherTests: XCTestCase {
             showErrorCalled = true
         }
     }
-    
-    class MockDelegate: ViewModelDelegate {
-        
-        var showErrorCalled = false
-        var reloadViewCalled = false
-        
-        func reloadView() {
-            reloadViewCalled = true
-        }
-        
-        func show(error: CustomError) {
-            showErrorCalled = true
-        }
-    }
 }
