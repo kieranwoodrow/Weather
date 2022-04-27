@@ -10,14 +10,14 @@ import Foundation
 
 class WeatherViewController: UIViewController {
     
+    @IBOutlet weak private var tempValue: UILabel!
+    @IBOutlet weak private var tempCondition: UILabel!
     @IBOutlet weak private var currentTempView: UIView!
     @IBOutlet weak private var minTemp: UILabel!
     @IBOutlet weak private var currentTemp: UILabel!
     @IBOutlet weak private var maxTemp: UILabel!
     @IBOutlet weak private var forcastedTableView: UITableView!
-    @IBOutlet weak private var tempValue: UILabel!
-    @IBOutlet weak private var tempCondition: UILabel!
-    
+
     private lazy var weatherViewModel = WeatherViewModel(repository: WeatherRepository(),
                                                          delegate: self)
     
