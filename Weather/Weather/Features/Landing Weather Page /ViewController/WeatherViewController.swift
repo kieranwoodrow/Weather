@@ -48,7 +48,6 @@ class WeatherViewController: UIViewController {
         setTableView()
         setWeatherViewModel()
         currentTempView.addBorder(side: .bottom, color: .white, width: 0.5)
-        
     }
 }
 
@@ -57,6 +56,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         weatherViewModel.upcomingDaysCount
     }
+  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = forcastedTableView.dequeueReusableCell(withIdentifier: "ForcastedWeatherCell", for: indexPath) as? ForcastedTableViewCell
@@ -76,7 +76,6 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension WeatherViewController:  ViewModelDelegate {
     func reloadView() {
-        
         self.forcastedTableView.reloadData()
         setLabels()
     }

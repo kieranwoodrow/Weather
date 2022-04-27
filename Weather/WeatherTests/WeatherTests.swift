@@ -106,7 +106,7 @@ class WeatherTests: XCTestCase {
         viewModel.weather()
         XCTAssertEqual(viewModel.condition, "--")
     }
-    
+   
     func testWeatherListSuccess() {
         repository.failed = false
         viewModel.weatherList()
@@ -207,5 +207,18 @@ class WeatherTests: XCTestCase {
             showErrorCalled = true
         }
     }
-
+    
+    class MockDelegate: ViewModelDelegate {
+        
+        var showErrorCalled = false
+        var reloadViewCalled = false
+        
+        func reloadView() {
+            reloadViewCalled = true
+        }
+        
+        func show(error: CustomError) {
+            showErrorCalled = true
+        }
+    }
 }
