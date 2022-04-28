@@ -16,6 +16,8 @@ enum CustomError: Error, LocalizedError {
     case unsuccessfullWeatherApiCall
     case coreLocationNotFound
     case coreLocationDenied
+    case coreDataUnsuccessfulSave
+    case coreDataSuccessfulSave
     
     var errorDescription: String {
         switch self {
@@ -33,6 +35,10 @@ enum CustomError: Error, LocalizedError {
             return "Coordinates cannot be found. Please make sure location services are on and you have signal"
         case .coreLocationDenied:
             return "We will not be able to track the weather in your area"
+        case .coreDataUnsuccessfulSave:
+            return "Could not save to database. Coordinates are nil or something else went wrong on our side"
+        case .coreDataSuccessfulSave:
+            return "Successfully saved location to database"
         }
     }
     
@@ -52,6 +58,10 @@ enum CustomError: Error, LocalizedError {
             return "There was an error retrieving the gps coordinates "
         case .coreLocationDenied:
             return "Location needs to be enabed"
+        case .coreDataUnsuccessfulSave:
+            return  "Could not save to database"
+        case .coreDataSuccessfulSave:
+            return "Successfull save"
         }
     }
 }
