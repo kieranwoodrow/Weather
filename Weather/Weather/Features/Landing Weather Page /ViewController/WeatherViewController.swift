@@ -52,6 +52,7 @@ class WeatherViewController: UIViewController {
         
         locationManager.delegate = self
         currentLocation()
+
     }
     
     private func setTableView() {
@@ -116,6 +117,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         weatherViewModel.upcomingDaysCount
     }
+  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = forcastedTableView.dequeueReusableCell(withIdentifier: "ForcastedWeatherCell", for: indexPath) as? ForcastedTableViewCell

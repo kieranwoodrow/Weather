@@ -31,6 +31,7 @@
 		D6E12E7128196CED00C8D13F /* ForcastedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E7028196CED00C8D13F /* ForcastedTableViewCell.swift */; };
 		D6E12EA3281AC84E00C8D13F /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12EA1281AC84E00C8D13F /* Location+CoreDataClass.swift */; };
 		D6E12EA4281AC84E00C8D13F /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12EA2281AC84E00C8D13F /* Location+CoreDataProperties.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		D6E12E7028196CED00C8D13F /* ForcastedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastedTableViewCell.swift; sourceTree = "<group>"; };
 		D6E12EA1281AC84E00C8D13F /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D6E12EA2281AC84E00C8D13F /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,7 +288,7 @@
 		D6E12E612816C70800C8D13F /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
-				D6E12E7028196CED00C8D13F /* ForcastedTableViewCell.swift */,
+				D6E12E7B2819A57C00C8D13F /* ForcastedTableViewCell.swift */,
 			);
 			path = "Custom UI";
 			sourceTree = "<group>";
@@ -508,9 +510,9 @@
 				D6E12DF52811595F00C8D13F /* Weather.xcdatamodeld in Sources */,
 				D6E12EA3281AC84E00C8D13F /* Location+CoreDataClass.swift in Sources */,
 				D6E12E2F2811F44D00C8D13F /* CustomErrors.swift in Sources */,
-				D6E12E7128196CED00C8D13F /* ForcastedTableViewCell.swift in Sources */,
 				D6E12E5B2815EE7A00C8D13F /* WeatherModel.swift in Sources */,
 				D6E12E332812A44700C8D13F /* ServiceLayerCall.swift in Sources */,
+				D6E12E7C2819A57C00C8D13F /* ForcastedTableViewCell.swift in Sources */,
 				D6E12E402814379F00C8D13F /* Constants.swift in Sources */,
 				D6E12E6C2819413600C8D13F /* Borders.swift in Sources */,
 				D6E12DEB2811595F00C8D13F /* AppDelegate.swift in Sources */,
