@@ -311,12 +311,11 @@ class WeatherTests: XCTestCase {
     }
     
     func testConstantsEndpointCloudyCondition() {
-        XCTAssertEqual(Constants.cloudyCondition, ["clouds", "smoke"])
+        XCTAssertEqual(Constants.cloudyCondition, ["clouds", "smoke", "haze", "mist", "sand", "ash", "fog", "dust"])
     }
     
     func testConstantsEndpointRainyCondition() {
-        XCTAssertEqual(Constants.rainyCondition,  ["fog", "rain", "snow", "tornado", "mist", "haze",
-                                                   "dust","thunderstorm", "sand", "ash", "squall"])
+        XCTAssertEqual(Constants.rainyCondition, ["rain", "snow", "tornado", "thunderstorm", "squall"])
     }
     
     func testConstantsEndpointCurrrentWeather() {
