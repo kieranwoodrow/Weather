@@ -7,24 +7,23 @@
 
 import Foundation
 
-protocol SavedLocationRepositoryType: AnyObject {
-    func fetchData() -> [Location]
+typealias LocationResult = (Result<[Location], CustomError>) -> Void
+protocol SavedLocationRepositoryType {
+    
+    func fetchAllSavedLocations(completion: @escaping (LocationResult))
 }
 
 class SavedLocationRepository: SavedLocationRepositoryType {
+    private var locations: [Location]? = []
     
-    private var items: [Location] = []
-    
-    func fetchData() -> [Location] {
-        
+    func fetchAllSavedLocations(completion: @escaping (LocationResult)) {
         do {
-            self.items = try Constants.coreDataPersistantObject?.fetch(Location.fetchRequest()) ?? []
+            self.locations = try Constants.coreDataPersistantObject?.fetch(Location.fetchRequest())
+            guard let safeLocations = self.locations else { return }
+            completion(.success(safeLocations))
             
         } catch {
-            
+            completion(.failure(.invalidData))
         }
-        return items
     }
 }
-
-

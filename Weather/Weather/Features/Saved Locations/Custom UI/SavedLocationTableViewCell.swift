@@ -10,4 +10,9 @@ import UIKit
 
 class SavedLocationTableViewCell: UITableViewCell {
     
+    @IBOutlet weak private var location: UILabel!
+    
+    func setLocation(locationDetails: String) {
+        location.text = locationDetails
+    }
 }
