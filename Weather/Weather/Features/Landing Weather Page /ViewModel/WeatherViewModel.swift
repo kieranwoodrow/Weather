@@ -185,12 +185,8 @@ class WeatherViewModel {
                                      completion: { [weak self] result in
                 switch result {
                 case .success(let savedSuccessfully):
-                    print("Save successful")
-                    print(savedSuccessfully)
                     self?.saveStatus = savedSuccessfully
                 case .failure(let error):
-                    print("Save unsuccessful")
-                    print(error)
                     self?.delegate?.show(error: error)
                 }
             })

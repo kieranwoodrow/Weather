@@ -16,7 +16,6 @@ struct Constants {
                                            AppDelegate)?.persistentContainer.viewContext
     static let themes = ["forrest", "sea"]
     static let sunnyCondition = ["clear"]
-    static let cloudyCondition = ["clouds", "smoke"]
-    static let rainyCondition = ["fog", "rain", "snow", "tornado", "mist", "haze",
-                                 "dust","thunderstorm", "sand", "ash", "squall"]
+    static let rainyCondition = ["rain", "snow", "tornado", "thunderstorm", "squall"]
+    static let cloudyCondition = ["clouds", "smoke", "haze", "mist", "sand", "ash", "fog", "dust"]
 }
