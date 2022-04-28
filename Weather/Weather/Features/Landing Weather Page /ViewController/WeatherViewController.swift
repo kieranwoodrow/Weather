@@ -11,21 +11,34 @@ import CoreLocation
 
 class WeatherViewController: UIViewController {
     
+    @IBOutlet weak private var currentTemperatureView: UIView!
+    @IBOutlet weak private var bottomView: UIView!
+    @IBOutlet weak private var themeImage: UIImageView!
     @IBOutlet weak private var tempValue: UILabel!
     @IBOutlet weak private var tempCondition: UILabel!
-    @IBOutlet weak private var currentTempView: UIView!
     @IBOutlet weak private var minTemp: UILabel!
     @IBOutlet weak private var currentTemp: UILabel!
     @IBOutlet weak private var maxTemp: UILabel!
     @IBOutlet weak private var forcastedTableView: UITableView!
     private let locationManager = CLLocationManager()
     
+    private var theme = "forrest"
     private lazy var weatherViewModel = WeatherViewModel(repository: WeatherRepository(),
                                                          delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setWeatherViewController()
+    }
+    
+    @IBAction private func forrestButtonPressed(_ sender: Any) {
+        theme = "forrest"
+        toggleThemes(theme: theme, weatherCondition: weatherViewModel.condition.lowercased())
+    }
+    
+    @IBAction private func seaButtonPressed(_ sender: Any) {
+        theme = "sea"
+        toggleThemes(theme: theme, weatherCondition: weatherViewModel.condition.lowercased())
     }
     
     private func setTableView() {
@@ -50,11 +63,21 @@ class WeatherViewController: UIViewController {
         maxTemp.text = String(weatherViewModel.maxTemp) + "˚"
     }
     
+    private func toggleThemes(theme: String, weatherCondition: String) {
+        let pageTheme = weatherViewModel.toggleThemes(theme: theme,
+                                                      condition: weatherCondition)
+        reloadView()
+        themeImage.image = UIImage(named: pageTheme[0])
+        forcastedTableView.backgroundColor = UIColor(named: pageTheme[1])
+        bottomView.backgroundColor = UIColor(named: pageTheme[1])
+    }
+    
     private func setWeatherViewController() {
         setCoreLocation()
         setTableView()
         setWeatherViewModel()
-        currentTempView.addBorder(side: .bottom, color: .white, width: 0.5)
+        currentTemperatureView.addBorder(side: .bottom, color: .white, width: 0.5)
+        toggleThemes(theme: theme, weatherCondition: weatherViewModel.condition.lowercased())
     }
     
     func retriveCurrentLocation(){
@@ -94,9 +117,9 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             return ForcastedTableViewCell()
         }
-        cell.setRocketCell(day: weatherViewModel.day(atIndex:  indexPath.item),
+        cell.setWeatherCell(day: weatherViewModel.day(atIndex:  indexPath.item),
                            temp: String(weatherViewModel.forcastedTemp(atIndex: indexPath.item)),
-                           condition: weatherViewModel.forcastedCondition(atIndex: indexPath.item).lowercased())
+                            condition: weatherViewModel.condition.lowercased(), theme: theme)
         return cell
     }
     
