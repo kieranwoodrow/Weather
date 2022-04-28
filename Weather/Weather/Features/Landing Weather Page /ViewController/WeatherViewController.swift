@@ -19,7 +19,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak private var currentTemp: UILabel!
     @IBOutlet weak private var maxTemp: UILabel!
     @IBOutlet weak private var forcastedTableView: UITableView!
-    private var defaulTtheme = "forrest"
+    private var theme = "forrest"
     private lazy var weatherViewModel = WeatherViewModel(repository: WeatherRepository(),
                                                          delegate: self)
     
@@ -29,13 +29,13 @@ class WeatherViewController: UIViewController {
     }
     
     @IBAction private func forrestButtonPressed(_ sender: Any) {
-        defaulTtheme = "forrest"
-        toggleThemes(theme: defaulTtheme, weatherCondition: weatherViewModel.condition)
+        theme = "forrest"
+        toggleThemes(theme: theme, weatherCondition: weatherViewModel.condition.lowercased())
     }
     
     @IBAction private func seaButtonPressed(_ sender: Any) {
-        defaulTtheme = "sea"
-        toggleThemes(theme: defaulTtheme, weatherCondition: weatherViewModel.condition)
+        theme = "sea"
+        toggleThemes(theme: theme, weatherCondition: weatherViewModel.condition.lowercased())
     }
     
     private func setTableView() {
@@ -57,8 +57,8 @@ class WeatherViewController: UIViewController {
     }
     
     private func toggleThemes(theme: String, weatherCondition: String) {
-        let pageTheme = weatherViewModel.toggleThemes(theme: defaulTtheme,
-                                                      condition: weatherCondition.lowercased())
+        let pageTheme = weatherViewModel.toggleThemes(theme: theme,
+                                                      condition: weatherCondition)
         reloadView()
         themeImage.image = UIImage(named: pageTheme[0])
         forcastedTableView.backgroundColor = UIColor(named: pageTheme[1])
@@ -69,7 +69,7 @@ class WeatherViewController: UIViewController {
         setTableView()
         setWeatherViewModel()
         currentTemperatureView.addBorder(side: .bottom, color: .white, width: 0.5)
-        toggleThemes(theme: defaulTtheme, weatherCondition: weatherViewModel.condition.lowercased())
+        toggleThemes(theme: theme, weatherCondition: weatherViewModel.condition.lowercased())
     }
 }
 
@@ -86,7 +86,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.setWeatherCell(day: weatherViewModel.day(atIndex:  indexPath.item),
                            temp: String(weatherViewModel.forcastedTemp(atIndex: indexPath.item)),
-                            condition: weatherViewModel.condition.lowercased(), theme: defaulTtheme)
+                            condition: weatherViewModel.condition.lowercased(), theme: theme)
         return cell
     }
     
