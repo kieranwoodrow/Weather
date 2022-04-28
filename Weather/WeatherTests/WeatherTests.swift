@@ -51,6 +51,19 @@ class WeatherTests: XCTestCase {
         XCTAssertEqual(viewModel.forcastedTemp(atIndex: 0), 0)
     }
     
+    func testForcastedWeatherConditionReturnsCorrectCondition() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.forcastedCondition(atIndex: 0), "Cloudy")
+    }
+    func testForcastedWeatherConditionsReturnsPlaceholderIfNil() {
+        repository.failed = false
+        repository.selectedEmptyWeather = true
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.forcastedCondition(atIndex: 0), "--")
+    }
+    
     func testCurrentWeatherTemperatureReturnsCorrectValue() {
         repository.failed = false
         repository.selectedEmptyWeather = false
@@ -105,6 +118,41 @@ class WeatherTests: XCTestCase {
         repository.selectedEmptyWeather = true
         viewModel.weather()
         XCTAssertEqual(viewModel.condition, "--")
+    }
+    
+    func testForrestBackgroundImageReturnsCorrectImage() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.forrestBackgroundImage(condition: "clear"), "SunnyForrest")
+    }
+    
+    func testSeaBackgroundImageReturnsCorrectImage() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.seaBackgroundImage(condition: "clear"), "SunnySea")
+    }
+    
+    func testForrestBackgroundColourReturnsColour() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.forrestBackgroundColour(condition: "clear"), "Sunny")
+    }
+    
+    func testSeaBackgroundColourReturnsColour() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.seaBackgroundColour(condition: "clear"), "Ocean")
+    }
+    
+    func testToggleThemesFunctionReturnsCorrectArray() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.toggleThemes(theme: "forrest", condition: "clear"), ["SunnyForrest", "Sunny"])
     }
     
     func testWeatherListSuccess() {
@@ -207,5 +255,4 @@ class WeatherTests: XCTestCase {
             showErrorCalled = true
         }
     }
-
 }
