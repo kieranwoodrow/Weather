@@ -16,6 +16,118 @@ class WeatherTests: XCTestCase {
         viewModel = WeatherViewModel(repository: repository, delegate: delegate)
     }
     
+    func testForrestBackgroundImageReturnsCorrectImageBasedOnCloudyForrestTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundImage(theme: "forrest", condition: "clouds"), "CloudyForrest")
+    }
+    
+    func testForrestBackgroundImageReturnsCorrectImageBasedOnSunnyForrestTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundImage(theme: "forrest", condition: "sunny"), "SunnyForrest")
+    }
+    
+    func testForrestBackgroundImageReturnsCorrectImageBasedOnRainyForrestTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundImage(theme: "forrest", condition: "thunderstorm"), "RainyForrest")
+    }
+    
+    func testForrestBackgroundImageReturnsCorrectImageBasedOnDefault() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundImage(theme: "forrest", condition: "--"), "SunnyForrest")
+    }
+    
+    func testSeaBackgroundImageReturnsCorrectImageBasedOnCloudySeaTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundImage(theme: "sea", condition: "clouds"), "CloudySea")
+    }
+    
+    func testSeaBackgroundImageReturnsCorrectImageBasedOnSunnySeaTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundImage(theme: "sea", condition: "sunny"), "SunnySea")
+    }
+    
+    func testSeaBackgroundImageReturnsCorrectImageBasedOnRainySeaTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundImage(theme: "sea", condition: "thunderstorm"), "RainySea")
+    }
+    
+    func testSeaBackgroundImageReturnsCorrectImageBasedOnDefault() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundImage(theme: "sea", condition: "--"), "SunnySea")
+    }
+    
+    func testForrestBackgroundColourReturnsCorrectColourBasedOnCloudyForrestTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundColour(theme: "forrest", condition: "clouds"), "Cloudy")
+    }
+    
+    func testForrestBackgroundColourReturnsCorrectColourBasedOnSunnyForrestTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundColour(theme: "forrest", condition: "sunny"), "Sunny")
+    }
+    
+    func testForrestBackgroundColourReturnsCorrectColourBasedOnRainyForrestTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundColour(theme: "forrest", condition: "thunderstorm"), "Rainy")
+    }
+    
+    func testForrestBackgroundColourReturnsCorrectColourBasedOnDefault() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundColour(theme: "forrest", condition: "--"), "Sunny")
+    }
+    
+    func testSeaBackgroundColourReturnsCorrectColourBasedOnSunnySeaTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundColour(theme: "sea", condition: "sunny"), "Ocean")
+    }
+    
+    func testSeaBackgroundColourReturnsCorrectColourBasedOnCloudySeaTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundColour(theme: "sea", condition: "clouds"), "Cloudy")
+    }
+    
+    func testSeaBackgroundColourReturnsCorrectColourBasedOnRainySeaTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundColour(theme: "sea", condition: "thunderstorm"), "Rainy")
+    }
+    
+    func testSeaBackgroundColourReturnsCorrectColourBasedOnDefault() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.backgroundColour(theme: "sea", condition: "--"), "Ocean")
+    }
+    
     func testWeatherListCountReturnsCorrectNumberOfWeatherResponses() {
         repository.failed = false
         repository.selectedEmptyWeather = false
@@ -124,35 +236,42 @@ class WeatherTests: XCTestCase {
         repository.failed = false
         repository.selectedEmptyWeather = false
         viewModel.weatherList()
-        XCTAssertEqual(viewModel.forrestBackgroundImage(condition: "clear"), "SunnyForrest")
+        XCTAssertEqual(viewModel.backgroundImage(theme: "forrest", condition: "clear"), "SunnyForrest")
     }
     
     func testSeaBackgroundImageReturnsCorrectImage() {
         repository.failed = false
         repository.selectedEmptyWeather = false
         viewModel.weatherList()
-        XCTAssertEqual(viewModel.seaBackgroundImage(condition: "clear"), "SunnySea")
+        XCTAssertEqual(viewModel.backgroundImage(theme: "sea", condition: "clear"), "SunnySea")
     }
     
     func testForrestBackgroundColourReturnsColour() {
         repository.failed = false
         repository.selectedEmptyWeather = false
         viewModel.weatherList()
-        XCTAssertEqual(viewModel.forrestBackgroundColour(condition: "clear"), "Sunny")
+        XCTAssertEqual(viewModel.backgroundColour(theme: "forrest", condition: "clear"), "Sunny")
     }
     
     func testSeaBackgroundColourReturnsColour() {
         repository.failed = false
         repository.selectedEmptyWeather = false
         viewModel.weatherList()
-        XCTAssertEqual(viewModel.seaBackgroundColour(condition: "clear"), "Ocean")
+        XCTAssertEqual(viewModel.backgroundColour(theme: "sea", condition: "clear"), "Ocean")
     }
     
-    func testToggleThemesFunctionReturnsCorrectArray() {
+    func testToggleThemesFunctionReturnsCorrectArrayForForrestTheme() {
         repository.failed = false
         repository.selectedEmptyWeather = false
         viewModel.weatherList()
         XCTAssertEqual(viewModel.toggleThemes(theme: "forrest", condition: "clear"), ["SunnyForrest", "Sunny"])
+    }
+    
+    func testToggleThemesFunctionReturnsCorrectArrayForSeaTheme() {
+        repository.failed = false
+        repository.selectedEmptyWeather = false
+        viewModel.weatherList()
+        XCTAssertEqual(viewModel.toggleThemes(theme: "sea", condition: "clear"), ["SunnySea", "Ocean"])
     }
     
     func testWeatherListSuccess() {
@@ -181,6 +300,92 @@ class WeatherTests: XCTestCase {
         viewModel.weather()
         XCTAssert(delegate.showErrorCalled)
         XCTAssertFalse(delegate.reloadViewCalled)
+    }
+    
+    func testConstantsEndpointTheme() {
+        XCTAssertEqual(Constants.themes, ["forrest", "sea"])
+    }
+    
+    func testConstantsEndpointSunnyCondition() {
+        XCTAssertEqual(Constants.sunnyCondition, ["clear"])
+    }
+    
+    func testConstantsEndpointCloudyCondition() {
+        XCTAssertEqual(Constants.cloudyCondition, ["clouds", "smoke", "haze", "mist", "sand", "ash", "fog", "dust"])
+    }
+    
+    func testConstantsEndpointRainyCondition() {
+        XCTAssertEqual(Constants.rainyCondition, ["rain", "snow", "tornado", "thunderstorm", "squall"])
+    }
+    
+    func testConstantsEndpointCurrrentWeather() {
+        XCTAssertEqual(Constants.currrentWeather, "https://api.openweathermap.org/data/2.5/weather")
+    }
+    
+    func testConstantsEndpointFocastedWeather() {
+        XCTAssertEqual(Constants.focastedWeather, "https://api.openweathermap.org/data/2.5/forecast")
+    }
+    
+    func testCustomEnums1() {
+        XCTAssertEqual(CustomError.invalidUrl.failureReason, "The URL is invalid")
+    }
+    
+    func testCustomEnums3() {
+        XCTAssertEqual(CustomError.invalidData.failureReason, "The data is invalid")
+    }
+    func testCustomEnums4() {
+        XCTAssertEqual(CustomError.internalError.failureReason, "There was an internal error from the API")
+    }
+    func testCustomEnums5() {
+        XCTAssertEqual(CustomError.parsingError.failureReason, "There was an error decoding the data from the API")
+    }
+    func testCustomEnums6() {
+        XCTAssertEqual(CustomError.unsuccessfullWeatherApiCall.failureReason, "There was an error retrieving the weather data")
+    }
+    func testCustomEnums7() {
+        XCTAssertEqual(CustomError.coreLocationNotFound.failureReason, "There was an error retrieving the gps coordinates")
+    }
+    func testCustomEnums8() {
+        XCTAssertEqual(CustomError.coreLocationDenied.failureReason, "Location needs to be enabed" )
+    }
+    func testCustomEnums9() {
+        XCTAssertEqual(CustomError.coreDataUnsuccessfulSave.failureReason, "Could not save to database" )
+    }
+    
+    func testCustomEnums2() {
+        XCTAssertEqual(CustomError.coreDataSuccessfulSave.failureReason, "Successfull save")
+    }
+    
+    func testCustomEnums11() {
+        XCTAssertEqual(CustomError.invalidUrl.errorDescription, "Invalid URL")
+    }
+    
+    func testCustomEnums13() {
+        XCTAssertEqual(CustomError.invalidData.errorDescription, "Invalid data")
+    }
+    func testCustomEnums14() {
+        XCTAssertEqual(CustomError.internalError.errorDescription, "Internal error")
+    }
+    func testCustomEnums15() {
+        XCTAssertEqual(CustomError.parsingError.errorDescription, "Passing error")
+    }
+    func testCustomEnums16() {
+        XCTAssertEqual(CustomError.unsuccessfullWeatherApiCall.errorDescription, "Api call was unsuccessful")
+    }
+    func testCustomEnums17() {
+        XCTAssertEqual(CustomError.coreLocationNotFound.errorDescription,
+                       "Coordinates cannot be found. Please make sure location services are on and you have signal")
+    }
+    func testCustomEnums18() {
+        XCTAssertEqual(CustomError.coreLocationDenied.errorDescription, "We will not be able to track the weather in your area" )
+    }
+    func testCustomEnums19() {
+        XCTAssertEqual(CustomError.coreDataUnsuccessfulSave.errorDescription,
+                       "Could not save to database. Coordinates are nil or something else went wrong on our side" )
+    }
+    
+    func testCustomEnums20() {
+        XCTAssertEqual(CustomError.coreDataSuccessfulSave.errorDescription, "Successfully saved location to database")
     }
     
     private var viewModel: WeatherViewModel!

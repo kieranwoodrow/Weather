@@ -74,6 +74,7 @@ class WeatherViewController: UIViewController {
         minTemp.text = String(weatherViewModel.minTemp) + "˚"
         currentTemp.text = String(weatherViewModel.currentTemp) + "˚"
         maxTemp.text = String(weatherViewModel.maxTemp) + "˚"
+        currentTemperatureView.addBorder(side: .bottom, color: .white, width: 0.5)
     }
     
     private func toggleThemes(theme: String, weatherCondition: String) {
@@ -89,7 +90,6 @@ class WeatherViewController: UIViewController {
         
         setCoreLocation()
         setTableView()
-        currentTemperatureView.addBorder(side: .bottom, color: .white, width: 0.5)
         toggleThemes(theme: theme, weatherCondition: weatherViewModel.condition.lowercased())
     }
     
@@ -126,7 +126,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.setWeatherCell(day: weatherViewModel.day(atIndex:  indexPath.item),
                             temp: String(weatherViewModel.forcastedTemp(atIndex: indexPath.item)),
-                            condition: weatherViewModel.condition.lowercased(), theme: theme)
+                            condition:   weatherViewModel.condition.lowercased(), theme: theme)
         return cell
     }
     
