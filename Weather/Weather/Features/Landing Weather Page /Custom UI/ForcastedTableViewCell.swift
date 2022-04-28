@@ -14,35 +14,20 @@ class ForcastedTableViewCell: UITableViewCell {
     @IBOutlet weak private var temperature: UILabel!
     @IBOutlet weak private var day: UILabel!
     private var icon = UIImage()
+    private var color = UIColor()
     private var iconName = ""
-    private var sunnyIcon = ["clear"]
-    private var partlyCloudyIcon = ["drizzle"]
-    private var cloudyIcon = ["thunderstorm", "drizzle", "rain",
-                              "snow","tornado", "mist", "smoke",
-                              "haze", "dust","fog", "sand", "ash", "squall"]
     
-    func set(condition: String) {
-        switch condition {
-        case condition where partlyCloudyIcon.contains(where: condition.contains):
-            iconName = "partlyCloudy"
-            setIcon(name: iconName)
-        case condition where cloudyIcon.contains(where: condition.contains):
-            iconName = "Rainy"
-            setIcon(name: iconName)
-        case condition where sunnyIcon.contains(where: condition.contains):
-            iconName = "Clear"
-            setIcon(name: iconName)
-        default:
-            setIcon(name: "Clear")
-        }
-        
-        self.weatherIcon.image = icon
-    }
-    
-    func setIcon(name: String) {
-        if let safeIcon = UIImage(named: name) {
+    func set(weatherIcon: String) {
+        if let safeIcon = UIImage(named: weatherIcon) {
             icon = safeIcon
         }
+    }
+    
+    func set(colour: String) -> UIColor {
+        if let safeColour = UIColor(named: colour) {
+            color = safeColour
+        }
+        return color
     }
     
     func set(day: String) {
@@ -53,9 +38,70 @@ class ForcastedTableViewCell: UITableViewCell {
         self.temperature.text = temperature + "˚"
     }
     
-    func setRocketCell(day: String, temp: String, condition: String) {
+    func set(theme: String, condition: String) {
+        if theme == Constants.themes[0] {
+            set(forrestBackgroundColour: condition)
+        } else {
+            set(seaBackgroundColour: condition)
+        }
+    }
+    
+    func set(forrestBackgroundColour: String) {
+        var colours = ""
+        
+        switch forrestBackgroundColour {
+        case forrestBackgroundColour where Constants.rainyCondition.contains(where: forrestBackgroundColour.contains):
+            colours = "Rainy"
+        case forrestBackgroundColour where Constants.sunnyCondition.contains(where: forrestBackgroundColour.contains):
+            colours = "Sunny"
+        case forrestBackgroundColour where Constants.cloudyCondition.contains(where: forrestBackgroundColour.contains):
+            colours = "Cloudy"
+        default:
+            colours = "Cloudy"
+        }
+        
+        self.backgroundColor = set(colour: colours)
+    }
+    
+    func set(seaBackgroundColour: String) {
+        var colours = ""
+        
+        switch seaBackgroundColour {
+        case seaBackgroundColour where Constants.rainyCondition.contains(where: seaBackgroundColour.contains):
+            colours = "Rainy"
+        case seaBackgroundColour where Constants.sunnyCondition.contains(where: seaBackgroundColour.contains):
+            colours = "Ocean"
+        case seaBackgroundColour where Constants.cloudyCondition.contains(where: seaBackgroundColour.contains):
+            colours = "Cloudy"
+        default:
+            colours = "Ocean"
+        }
+        
+        self.backgroundColor = set(colour: colours)
+    }
+    
+    func set(iconImage: String) {
+        switch iconImage {
+        case iconImage where Constants.cloudyCondition.contains(where: iconImage.contains ):
+            iconName = "CloudyIcon"
+            set(weatherIcon: iconName)
+        case iconImage where Constants.rainyCondition.contains(where: iconImage.contains):
+            iconName = "RainyIcon"
+            set(weatherIcon: iconName)
+        case iconImage where Constants.sunnyCondition.contains(where: iconImage.contains):
+            iconName = "SunnyIcon"
+            set(weatherIcon: iconName)
+        default:
+            set(weatherIcon: "CloudyIcon")
+        }
+        
+        self.weatherIcon.image = icon
+    }
+    
+    func setWeatherCell(day: String, temp: String, condition: String, theme: String) {
         set(day: day)
         set(temperature: temp)
-        set(condition: condition)
+        set(iconImage: condition)
+        set(theme: theme, condition: condition)
     }
 }
