@@ -13,7 +13,7 @@ struct Constants {
     static let apiKey = Apikey().apiKey
     static let themes = ["forrest", "sea"]
     static let sunnyCondition = ["clear"]
-    static let cloudyCondition = ["clouds"]
+    static let cloudyCondition = ["clouds", "smoke"]
     static let rainyCondition = ["thunderstorm", "rain", "snow", "tornado",
-                                 "mist", "smoke", "haze", "dust","fog", "sand", "ash", "squall"]
+                                 "mist", "haze", "dust","fog", "sand", "ash", "squall"]
 }
