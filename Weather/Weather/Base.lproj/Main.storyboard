@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nKT-nY-RCG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Weather View Controller-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2p4-EH-s9o">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ylx-N6-cMq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="384.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Hc-IR-Hjz">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="384.5"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ata-fi-4Bg">
                                                 <rect key="frame" x="107" y="92" width="200" height="126"/>
@@ -75,9 +76,12 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e9-aE-Z1R">
-                                                <rect key="frame" x="22" y="19" width="114.5" height="31"/>
+                                                <rect key="frame" x="22" y="19" width="133" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Save Location"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Save Location">
+                                                    <imageReference key="image" image="star.fill" catalog="system" symbolScale="medium"/>
+                                                    <backgroundConfiguration key="background"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="saveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RaQ-Gh-Y9G"/>
                                                 </connections>
@@ -99,7 +103,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IEd-Ws-aJW">
-                                        <rect key="frame" x="0.0" y="409" width="414" height="409"/>
+                                        <rect key="frame" x="0.0" y="384.5" width="414" height="384.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wcc-wj-RbX">
                                                 <rect key="frame" x="10" y="0.0" width="394" height="49"/>
@@ -192,10 +196,10 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kfu-pk-vWj">
-                                                <rect key="frame" x="20" y="69" width="374" height="317"/>
+                                                <rect key="frame" x="20" y="61.5" width="374" height="300"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="317" id="F8K-jm-JB5"/>
+                                                    <constraint firstAttribute="height" constant="300" id="F8K-jm-JB5"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ForcastedWeatherCell" id="jwd-io-80V" customClass="ForcastedTableViewCell" customModule="Weather" customModuleProvider="target">
@@ -277,6 +281,9 @@
                             <constraint firstItem="2p4-EH-s9o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qbd-rK-E0m"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" selectedImage="house.fill" catalog="system" id="YUp-cr-WhH">
+                        <imageReference key="image" image="house.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="bottomView" destination="IEd-Ws-aJW" id="2nG-Ef-kMh"/>
                         <outlet property="currentTemp" destination="3kY-ud-Oii" id="o4u-QW-WLS"/>
@@ -291,11 +298,106 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="64.955357142857139"/>
+            <point key="canvasLocation" x="10" y="70"/>
+        </scene>
+        <!--Saved Locations-->
+        <scene sceneID="bjn-cv-KXn">
+            <objects>
+                <viewController id="Tmj-7s-1JO" customClass="SavedLocationViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fBr-Ve-b5w">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="khg-kD-79E">
+                                <rect key="frame" x="45" y="134" width="324" height="679"/>
+                                <color key="backgroundColor" name="Cloudy"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="324" id="pVt-MX-D59"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="679" id="yzG-b4-KSz"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedlocation" id="4sy-Cl-Mx8" customClass="SavedLocationTableViewCell" customModule="Weather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="324" height="21"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4sy-Cl-Mx8" id="f7T-Mb-Isr">
+                                            <rect key="frame" x="0.0" y="0.0" width="324" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwg-BJ-SGv">
+                                                    <rect key="frame" x="2" y="0.0" width="320" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="Cloudy"/>
+                                            <constraints>
+                                                <constraint firstItem="Kwg-BJ-SGv" firstAttribute="top" secondItem="f7T-Mb-Isr" secondAttribute="top" id="Gpu-D4-Q4K"/>
+                                                <constraint firstAttribute="bottom" secondItem="Kwg-BJ-SGv" secondAttribute="bottom" id="TZa-XE-P3D"/>
+                                                <constraint firstItem="Kwg-BJ-SGv" firstAttribute="centerX" secondItem="f7T-Mb-Isr" secondAttribute="centerX" id="ZtO-tJ-H15"/>
+                                                <constraint firstItem="Kwg-BJ-SGv" firstAttribute="centerY" secondItem="f7T-Mb-Isr" secondAttribute="centerY" id="iTA-gY-bJj"/>
+                                                <constraint firstAttribute="trailing" secondItem="Kwg-BJ-SGv" secondAttribute="trailing" constant="2" id="qXh-Et-WmF"/>
+                                                <constraint firstItem="Kwg-BJ-SGv" firstAttribute="centerY" secondItem="f7T-Mb-Isr" secondAttribute="centerY" id="ufN-y0-Nm2"/>
+                                                <constraint firstItem="Kwg-BJ-SGv" firstAttribute="leading" secondItem="f7T-Mb-Isr" secondAttribute="leading" constant="2" id="v1V-rh-RTx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="location" destination="Kwg-BJ-SGv" id="6KU-nI-sqH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dpG-5V-OuX"/>
+                        <color key="backgroundColor" name="Cloudy"/>
+                        <constraints>
+                            <constraint firstItem="khg-kD-79E" firstAttribute="leading" secondItem="dpG-5V-OuX" secondAttribute="leading" constant="45" id="OPo-Y7-Sk6"/>
+                            <constraint firstItem="dpG-5V-OuX" firstAttribute="trailing" secondItem="khg-kD-79E" secondAttribute="trailing" constant="45" id="WKd-pL-vKP"/>
+                            <constraint firstItem="khg-kD-79E" firstAttribute="bottom" secondItem="dpG-5V-OuX" secondAttribute="bottom" id="lce-Th-sce"/>
+                            <constraint firstItem="khg-kD-79E" firstAttribute="top" secondItem="dpG-5V-OuX" secondAttribute="top" constant="90" id="oWO-aX-3uS"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Saved Locations" selectedImage="star.fill" catalog="system" id="WNg-iJ-liC">
+                        <imageReference key="image" image="star.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="locationsTableView" destination="khg-kD-79E" id="Wd3-PR-81b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PLi-sO-drM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1378.2608695652175" y="69.642857142857139"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="cn7-dc-KaW">
+            <objects>
+                <tabBarController id="nKT-nY-RCG" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3U7-8J-Nt3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="QPb-ex-ulg"/>
+                        <segue destination="Tmj-7s-1JO" kind="relationship" relationship="viewControllers" id="ku1-Nw-SCl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MjY-Y9-wYZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="677" y="-656"/>
         </scene>
     </scenes>
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="Cloudy">
+            <color red="0.32899999618530273" green="0.44299998879432678" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

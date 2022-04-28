@@ -18,7 +18,7 @@ class WeatherViewModel {
     private var forcastedWeather: WeatherList?
     private weak var delegate: ViewModelDelegate?
     private var repository: WeatherRepositoryType?
-    private var upcomingDays: [String] = []
+    private var upcomingDays: [String]
     private var date = Date()
     private var lat: String
     private var long: String
@@ -26,11 +26,12 @@ class WeatherViewModel {
     
     init(repository: WeatherRepositoryType,
          delegate: ViewModelDelegate) {
+        self.upcomingDays = []
+        self.repository = repository
+        self.delegate = delegate
         self.lat = ""
         self.long = ""
         self.saveStatus = false
-        self.repository = repository
-        self.delegate = delegate
         self.nextFiveDays()
     }
     
@@ -81,67 +82,61 @@ class WeatherViewModel {
         return currentWeather?.weather?[0].weatherDescription ?? "--"
     }
     
-    func forrestBackgroundImage(condition: String) -> String {
+    func backgroundImage(theme: String, condition: String) -> String {
         var backgroundImage = ""
         
-        switch condition {
-        case condition where Constants.rainyCondition.contains(where: condition.contains):
-            backgroundImage = "RainyForrest"
-        case condition where Constants.sunnyCondition.contains(where: condition.contains):
-            backgroundImage = "SunnyForrest"
-        case condition where Constants.cloudyCondition.contains(where: condition.contains):
-            backgroundImage = "CloudyForrest"
-        default:
-            backgroundImage = "SunnyForrest"
+        if theme == Constants.themes[0] {
+            switch condition {
+            case condition where Constants.rainyCondition.contains(where: condition.contains):
+                backgroundImage = "RainyForrest"
+            case condition where Constants.sunnyCondition.contains(where: condition.contains):
+                backgroundImage = "SunnyForrest"
+            case condition where Constants.cloudyCondition.contains(where: condition.contains):
+                backgroundImage = "CloudyForrest"
+            default:
+                backgroundImage = "SunnyForrest"
+            }
+        } else {
+            switch condition {
+            case condition where Constants.rainyCondition.contains(where: condition.contains):
+                backgroundImage = "RainySea"
+            case condition where Constants.sunnyCondition.contains(where: condition.contains):
+                backgroundImage = "SunnySea"
+            case condition where Constants.cloudyCondition.contains(where: condition.contains):
+                backgroundImage = "CloudySea"
+            default:
+                backgroundImage = "SunnySea"
+            }
         }
+        
         return backgroundImage
     }
     
-    func seaBackgroundImage(condition: String) -> String {
-        
-        var backgroundImage = ""
-        
-        switch condition {
-        case condition where Constants.rainyCondition.contains(where: condition.contains):
-            backgroundImage = "RainySea"
-        case condition where Constants.sunnyCondition.contains(where: condition.contains):
-            backgroundImage = "SunnySea"
-        case condition where Constants.cloudyCondition.contains(where: condition.contains):
-            backgroundImage = "CloudySea"
-        default:
-            backgroundImage = "SunnySea"
-        }
-        return backgroundImage
-    }
-    
-    func forrestBackgroundColour(condition: String) -> String {
+    func backgroundColour(theme: String, condition: String) -> String {
         var backgroundColour = ""
         
-        switch condition {
-        case condition where Constants.rainyCondition.contains(where: condition.contains):
-            backgroundColour = "Rainy"
-        case condition where Constants.sunnyCondition.contains(where: condition.contains):
-            backgroundColour = "Sunny"
-        case condition where Constants.cloudyCondition.contains(where: condition.contains):
-            backgroundColour = "Cloudy"
-        default:
-            backgroundColour = "Sunny"
-        }
-        return backgroundColour
-    }
-    
-    func seaBackgroundColour(condition: String) -> String {
-        var backgroundColour = ""
-        
-        switch condition {
-        case condition where Constants.rainyCondition.contains(where: condition.contains):
-            backgroundColour = "Rainy"
-        case condition where Constants.sunnyCondition.contains(where: condition.contains):
-            backgroundColour = "Ocean"
-        case condition where Constants.cloudyCondition.contains(where: condition.contains):
-            backgroundColour = "Cloudy"
-        default:
-            backgroundColour = "Cloudy"
+        if theme == Constants.themes[0] {
+            switch condition {
+            case condition where Constants.rainyCondition.contains(where: condition.contains):
+                backgroundColour = "Rainy"
+            case condition where Constants.sunnyCondition.contains(where: condition.contains):
+                backgroundColour = "Sunny"
+            case condition where Constants.cloudyCondition.contains(where: condition.contains):
+                backgroundColour = "Cloudy"
+            default:
+                backgroundColour = "Sunny"
+            }
+        } else {
+            switch condition {
+            case condition where Constants.rainyCondition.contains(where: condition.contains):
+                backgroundColour = "Rainy"
+            case condition where Constants.sunnyCondition.contains(where: condition.contains):
+                backgroundColour = "Ocean"
+            case condition where Constants.cloudyCondition.contains(where: condition.contains):
+                backgroundColour = "Cloudy"
+            default:
+                backgroundColour = "Ocean"
+            }
         }
         return backgroundColour
     }
@@ -150,11 +145,11 @@ class WeatherViewModel {
         var themeImage = ""
         var themeColour = ""
         if theme == Constants.themes[0] {
-            themeImage = forrestBackgroundImage(condition: condition)
-            themeColour = forrestBackgroundColour(condition: condition)
+            themeImage = backgroundImage(theme: theme, condition: condition)
+            themeColour = backgroundColour(theme: theme, condition: condition)
         } else {
-            themeImage = seaBackgroundImage(condition: condition)
-            themeColour = seaBackgroundColour(condition: condition)
+            themeImage = backgroundImage(theme: theme, condition: condition)
+            themeColour = backgroundColour(theme: theme, condition: condition)
         }
         return [themeImage, themeColour]
     }
@@ -190,12 +185,8 @@ class WeatherViewModel {
                                      completion: { [weak self] result in
                 switch result {
                 case .success(let savedSuccessfully):
-                    print("Save successful")
-                    print(savedSuccessfully)
                     self?.saveStatus = savedSuccessfully
                 case .failure(let error):
-                    print("Save unsuccessful")
-                    print(error)
                     self?.delegate?.show(error: error)
                 }
             })
@@ -208,13 +199,8 @@ class WeatherViewModel {
         
         if saveLocationToDatabase() {
             delegate?.show(error: .coreDataSuccessfulSave)
-            print(locations)
         } else {
             delegate?.show(error: .coreDataUnsuccessfulSave)
         }
-    }
-    
-    var locations: [Location] {
-        return repository?.fetchData() ?? []
     }
 }

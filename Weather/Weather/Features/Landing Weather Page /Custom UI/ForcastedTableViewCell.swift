@@ -57,7 +57,7 @@ class ForcastedTableViewCell: UITableViewCell {
         case forrestBackgroundColour where Constants.cloudyCondition.contains(where: forrestBackgroundColour.contains):
             colours = "Cloudy"
         default:
-            colours = "Cloudy"
+            colours = "Sunny"
         }
         
         self.backgroundColor = set(colour: colours)
@@ -92,7 +92,7 @@ class ForcastedTableViewCell: UITableViewCell {
             iconName = "SunnyIcon"
             set(weatherIcon: iconName)
         default:
-            set(weatherIcon: "CloudyIcon")
+            set(weatherIcon: "SunnyIcon")
         }
         
         self.weatherIcon.image = icon

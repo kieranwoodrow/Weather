@@ -51,11 +51,11 @@ enum CustomError: Error, LocalizedError {
         case .internalError:
             return "There was an internal error from the API"
         case .parsingError:
-            return "There was an error decoding the data from the API "
+            return "There was an error decoding the data from the API"
         case .unsuccessfullWeatherApiCall:
-            return "There was an error retrieving the weather data "
+            return "There was an error retrieving the weather data"
         case .coreLocationNotFound:
-            return "There was an error retrieving the gps coordinates "
+            return "There was an error retrieving the gps coordinates"
         case .coreLocationDenied:
             return "Location needs to be enabed"
         case .coreDataUnsuccessfulSave:

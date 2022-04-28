@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D65B6314281AF4FB007199AB /* SavedLocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B6313281AF4FB007199AB /* SavedLocationRepository.swift */; };
+		D65B6316281AF5A9007199AB /* SavedLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B6315281AF5A9007199AB /* SavedLocationViewModel.swift */; };
+		D65B6318281AF768007199AB /* SavedLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B6317281AF768007199AB /* SavedLocationViewController.swift */; };
+		D65B631A281AFE0E007199AB /* SavedLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B6319281AFE0E007199AB /* SavedLocationTableViewCell.swift */; };
 		D6E12DEB2811595F00C8D13F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12DEA2811595F00C8D13F /* AppDelegate.swift */; };
 		D6E12DED2811595F00C8D13F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12DEC2811595F00C8D13F /* SceneDelegate.swift */; };
 		D6E12DF22811595F00C8D13F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6E12DF02811595F00C8D13F /* Main.storyboard */; };
@@ -51,6 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D65B6313281AF4FB007199AB /* SavedLocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationRepository.swift; sourceTree = "<group>"; };
+		D65B6315281AF5A9007199AB /* SavedLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationViewModel.swift; sourceTree = "<group>"; };
+		D65B6317281AF768007199AB /* SavedLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationViewController.swift; sourceTree = "<group>"; };
+		D65B6319281AFE0E007199AB /* SavedLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationTableViewCell.swift; sourceTree = "<group>"; };
 		D6E12DE72811595F00C8D13F /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6E12DEA2811595F00C8D13F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6E12DEC2811595F00C8D13F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +115,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D65B630D281AF417007199AB /* Saved Locations */ = {
+			isa = PBXGroup;
+			children = (
+				D65B6312281AF479007199AB /* Custom UI */,
+				D65B6311281AF468007199AB /* ViewModel */,
+				D65B6310281AF453007199AB /* ViewController */,
+				D65B630E281AF422007199AB /* Repository */,
+			);
+			path = "Saved Locations";
+			sourceTree = "<group>";
+		};
+		D65B630E281AF422007199AB /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D65B6313281AF4FB007199AB /* SavedLocationRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		D65B6310281AF453007199AB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D65B6317281AF768007199AB /* SavedLocationViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D65B6311281AF468007199AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D65B6315281AF5A9007199AB /* SavedLocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D65B6312281AF479007199AB /* Custom UI */ = {
+			isa = PBXGroup;
+			children = (
+				D65B6319281AFE0E007199AB /* SavedLocationTableViewCell.swift */,
+			);
+			path = "Custom UI";
+			sourceTree = "<group>";
+		};
 		D6E12DDE2811595F00C8D13F = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +267,7 @@
 		D6E12E232811648A00C8D13F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				D65B630D281AF417007199AB /* Saved Locations */,
 				D6E12E512815AB5400C8D13F /* Landing Weather Page  */,
 			);
 			path = Features;
@@ -502,9 +554,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D65B6318281AF768007199AB /* SavedLocationViewController.swift in Sources */,
 				D6E12E592815EE6600C8D13F /* WeatherRepository.swift in Sources */,
 				D6E12E6F281943C500C8D13F /* Date.swift in Sources */,
 				D6E12E602815EEAD00C8D13F /* WeatherViewController.swift in Sources */,
+				D65B6316281AF5A9007199AB /* SavedLocationViewModel.swift in Sources */,
 				D6E12DF52811595F00C8D13F /* Weather.xcdatamodeld in Sources */,
 				D6E12EA3281AC84E00C8D13F /* Location+CoreDataClass.swift in Sources */,
 				D6E12E2F2811F44D00C8D13F /* CustomErrors.swift in Sources */,
@@ -513,6 +567,8 @@
 				D6E12E332812A44700C8D13F /* ServiceLayerCall.swift in Sources */,
 				D6E12E402814379F00C8D13F /* Constants.swift in Sources */,
 				D6E12E6C2819413600C8D13F /* Borders.swift in Sources */,
+				D65B6314281AF4FB007199AB /* SavedLocationRepository.swift in Sources */,
+				D65B631A281AFE0E007199AB /* SavedLocationTableViewCell.swift in Sources */,
 				D6E12DEB2811595F00C8D13F /* AppDelegate.swift in Sources */,
 				D6E12DED2811595F00C8D13F /* SceneDelegate.swift in Sources */,
 				D6E12E532815B00F00C8D13F /* Apikey.swift in Sources */,
