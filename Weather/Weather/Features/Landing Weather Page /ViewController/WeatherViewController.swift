@@ -11,7 +11,6 @@ import CoreLocation
 
 class WeatherViewController: UIViewController {
     
-    
     @IBOutlet weak private var currentTemperatureView: UIView!
     @IBOutlet weak private var bottomView: UIView!
     @IBOutlet weak private var themeImage: UIImageView!
@@ -45,7 +44,7 @@ class WeatherViewController: UIViewController {
         toggleThemes(theme: theme, weatherCondition: weatherViewModel.condition.lowercased())
     }
     
-    @IBAction func saveButton(_ sender: Any) {
+    @IBAction private func saveButton(_ sender: Any) {
         weatherViewModel.handleSaveRequest()
     }
     

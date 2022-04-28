@@ -78,8 +78,8 @@
 		D6E12E6B2819413600C8D13F /* Borders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borders.swift; sourceTree = "<group>"; };
 		D6E12E6E281943C500C8D13F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		D6E12E7028196CED00C8D13F /* ForcastedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastedTableViewCell.swift; sourceTree = "<group>"; };
-		D6E12EA1281AC84E00C8D13F /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataClass.swift"; path = "Weather/Core Data/Location+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D6E12EA2281AC84E00C8D13F /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataProperties.swift"; path = "Weather/Core Data/Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D6E12EA1281AC84E00C8D13F /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D6E12EA2281AC84E00C8D13F /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +110,6 @@
 		D6E12DDE2811595F00C8D13F = {
 			isa = PBXGroup;
 			children = (
-				D6E12EA1281AC84E00C8D13F /* Location+CoreDataClass.swift */,
-				D6E12EA2281AC84E00C8D13F /* Location+CoreDataProperties.swift */,
 				D6E12DE92811595F00C8D13F /* Weather */,
 				D6E12E032811596300C8D13F /* WeatherTests */,
 				D6E12E0D2811596300C8D13F /* WeatherUITests */,
@@ -200,6 +198,8 @@
 		D6E12E2128115B8400C8D13F /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				D6E12EA2281AC84E00C8D13F /* Location+CoreDataProperties.swift */,
+				D6E12EA1281AC84E00C8D13F /* Location+CoreDataClass.swift */,
 				D6E12DF32811595F00C8D13F /* Weather.xcdatamodeld */,
 			);
 			path = "Core Data";

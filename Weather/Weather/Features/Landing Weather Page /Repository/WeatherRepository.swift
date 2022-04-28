@@ -24,16 +24,16 @@ class WeatherRepository: WeatherRepositoryType {
     private var items: [Location] = []
     func fetchForcastedWeather(lat: String, long: String, completion: @escaping (ForcastedWeather)) {
         let url = Endpoint().forcast(lat: lat, long: long)
-//        request(endpoint: url,
-//                method: HTTPMethod.GET,
-//                completion: completion)
+        request(endpoint: url,
+                method: HTTPMethod.GET,
+                completion: completion)
     }
     
     func fetchCurrentWeather(lat: String, long: String, completion: @escaping (CurrentWeather)) {
         let url = Endpoint().current(lat: lat, long: long)
-//        request(endpoint: url,
-//                method: HTTPMethod.GET,
-//                completion: completion)
+        request(endpoint: url,
+                method: HTTPMethod.GET,
+                completion: completion)
     }
     
     private func request<T: Codable>(endpoint: String,
@@ -53,11 +53,10 @@ class WeatherRepository: WeatherRepositoryType {
     func saveLocation(latitude: String, longitude: String, completion: @escaping(SaveLocationResult)) {
         
         guard let safeCoreData = Constants.coreDataPersistantObject else { return }
-        let x = Location(context: safeCoreData)
+        let location = Location(context: safeCoreData)
+        location.latitude = latitude
+        location.longitude = longitude
         
-            x.latitude = latitude
-            x.longitude = longitude
-    
         do {
             try Constants.coreDataPersistantObject?.save()
             self.successFulLocationSave = true
@@ -77,5 +76,4 @@ class WeatherRepository: WeatherRepositoryType {
         }
         return items
     }
-    
 }

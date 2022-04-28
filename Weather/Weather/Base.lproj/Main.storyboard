@@ -75,9 +75,9 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e9-aE-Z1R">
-                                                <rect key="frame" x="22" y="19" width="67" height="31"/>
+                                                <rect key="frame" x="22" y="19" width="114.5" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Save Location"/>
                                                 <connections>
                                                     <action selector="saveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RaQ-Gh-Y9G"/>
                                                 </connections>

@@ -34,7 +34,6 @@ class WeatherViewModel {
         self.nextFiveDays()
     }
     
-    
     func set(lat: String, long: String) {
         if !lat.isEmpty, !long.isEmpty {
             self.lat = lat
@@ -201,14 +200,14 @@ class WeatherViewModel {
                 }
             })
         }
-   
+        
         return saveStatus
     }
     
     func handleSaveRequest() {
-      
+        
         if saveLocationToDatabase() {
-             delegate?.show(error: .coreDataSuccessfulSave)
+            delegate?.show(error: .coreDataSuccessfulSave)
             print(locations)
         } else {
             delegate?.show(error: .coreDataUnsuccessfulSave)
