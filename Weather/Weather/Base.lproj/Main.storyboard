@@ -297,18 +297,55 @@
         <!--Saved Locations-->
         <scene sceneID="bjn-cv-KXn">
             <objects>
-                <viewController id="Tmj-7s-1JO" sceneMemberID="viewController">
+                <viewController id="Tmj-7s-1JO" customClass="SavedLocationViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fBr-Ve-b5w">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="khg-kD-79E">
+                                <rect key="frame" x="45" y="55" width="324" height="275"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="275" id="W7B-WL-hRn"/>
+                                    <constraint firstAttribute="width" constant="324" id="hVd-68-4Gy"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedlocation" id="4sy-Cl-Mx8" customClass="SavedLocationTableViewCell" customModule="Weather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="324" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4sy-Cl-Mx8" id="f7T-Mb-Isr">
+                                            <rect key="frame" x="0.0" y="0.0" width="324" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwg-BJ-SGv">
+                                                    <rect key="frame" x="26" y="11" width="61" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dpG-5V-OuX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dpG-5V-OuX" firstAttribute="trailing" secondItem="khg-kD-79E" secondAttribute="trailing" constant="45" id="VzI-4X-gb8"/>
+                            <constraint firstItem="khg-kD-79E" firstAttribute="leading" secondItem="dpG-5V-OuX" secondAttribute="leading" constant="45" id="mkk-VD-xSd"/>
+                            <constraint firstItem="khg-kD-79E" firstAttribute="top" secondItem="dpG-5V-OuX" secondAttribute="top" constant="11" id="nQ3-Nb-3EV"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Saved Locations" selectedImage="star.fill" catalog="system" id="WNg-iJ-liC"/>
+                    <connections>
+                        <outlet property="locationsTableView" destination="khg-kD-79E" id="Wd3-PR-81b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLi-sO-drM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1380" y="70"/>
+            <point key="canvasLocation" x="1378.2608695652175" y="69.642857142857139"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cn7-dc-KaW">

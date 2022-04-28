@@ -15,13 +15,11 @@ protocol WeatherRepositoryType: AnyObject {
     func fetchForcastedWeather(lat: String, long: String, completion: @escaping(ForcastedWeather))
     func fetchCurrentWeather(lat: String, long: String, completion: @escaping (CurrentWeather))
     func saveLocation(latitude: String, longitude: String, completion: @escaping(SaveLocationResult))
-    func fetchData() -> [Location]
 }
 
 class WeatherRepository: WeatherRepositoryType {
     
     private var successFulLocationSave: Bool = false
-    private var items: [Location] = []
     func fetchForcastedWeather(lat: String, long: String, completion: @escaping (ForcastedWeather)) {
         let url = Endpoint().forcast(lat: lat, long: long)
         request(endpoint: url,
@@ -64,16 +62,5 @@ class WeatherRepository: WeatherRepositoryType {
         } catch {
             completion(Result.failure(.coreDataUnsuccessfulSave))
         }
-    }
-    
-    func fetchData() -> [Location] {
-        
-        do {
-            self.items = try Constants.coreDataPersistantObject?.fetch(Location.fetchRequest()) ?? []
-            
-        } catch {
-            
-        }
-        return items
     }
 }

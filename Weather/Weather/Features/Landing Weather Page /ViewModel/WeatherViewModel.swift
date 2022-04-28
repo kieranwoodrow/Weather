@@ -18,7 +18,7 @@ class WeatherViewModel {
     private var forcastedWeather: WeatherList?
     private weak var delegate: ViewModelDelegate?
     private var repository: WeatherRepositoryType?
-    private var upcomingDays: [String] = []
+    private var upcomingDays: [String]
     private var date = Date()
     private var lat: String
     private var long: String
@@ -26,11 +26,12 @@ class WeatherViewModel {
     
     init(repository: WeatherRepositoryType,
          delegate: ViewModelDelegate) {
+        self.upcomingDays = []
+        self.repository = repository
+        self.delegate = delegate
         self.lat = ""
         self.long = ""
         self.saveStatus = false
-        self.repository = repository
-        self.delegate = delegate
         self.nextFiveDays()
     }
     
@@ -208,13 +209,9 @@ class WeatherViewModel {
         
         if saveLocationToDatabase() {
             delegate?.show(error: .coreDataSuccessfulSave)
-            print(locations)
+            //print(locations)
         } else {
             delegate?.show(error: .coreDataUnsuccessfulSave)
         }
-    }
-    
-    var locations: [Location] {
-        return repository?.fetchData() ?? []
     }
 }
