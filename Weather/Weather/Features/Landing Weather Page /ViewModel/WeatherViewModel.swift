@@ -20,12 +20,26 @@ class WeatherViewModel {
     private var repository: WeatherRepositoryType?
     private var upcomingDays: [String] = []
     private var date = Date()
+    private var lat: String
+    private var long: String
+    private var saveStatus: Bool
     
     init(repository: WeatherRepositoryType,
          delegate: ViewModelDelegate) {
+        self.lat = ""
+        self.long = ""
+        self.saveStatus = false
         self.repository = repository
         self.delegate = delegate
         self.nextFiveDays()
+    }
+    
+    
+    func set(lat: String, long: String) {
+        if !lat.isEmpty, !long.isEmpty {
+            self.lat = lat
+            self.long = long
+        }
     }
     
     func nextFiveDays() {
@@ -146,7 +160,7 @@ class WeatherViewModel {
         return [themeImage, themeColour]
     }
     
-    func weather(lat: String, long: String) {
+    func weather() {
         repository?.fetchCurrentWeather(lat: lat, long: long, completion: { [weak self] result in
             switch result {
             case .success(let weather):
@@ -158,7 +172,7 @@ class WeatherViewModel {
         })
     }
     
-    func weatherList(lat: String, long: String) {
+    func weatherList() {
         repository?.fetchForcastedWeather(lat: lat, long: long, completion: { [weak self] result in
             switch result {
             case .success(let weatherList):
@@ -168,5 +182,40 @@ class WeatherViewModel {
                 self?.delegate?.show(error: error)
             }
         })
+    }
+    
+    func saveLocationToDatabase() -> Bool {
+        
+        if !lat.isEmpty, !long.isEmpty {
+            repository?.saveLocation(latitude: lat, longitude: long,
+                                     completion: { [weak self] result in
+                switch result {
+                case .success(let savedSuccessfully):
+                    print("Save successful")
+                    print(savedSuccessfully)
+                    self?.saveStatus = savedSuccessfully
+                case .failure(let error):
+                    print("Save unsuccessful")
+                    print(error)
+                    self?.delegate?.show(error: error)
+                }
+            })
+        }
+   
+        return saveStatus
+    }
+    
+    func handleSaveRequest() {
+      
+        if saveLocationToDatabase() {
+             delegate?.show(error: .coreDataSuccessfulSave)
+            print(locations)
+        } else {
+            delegate?.show(error: .coreDataUnsuccessfulSave)
+        }
+    }
+    
+    var locations: [Location] {
+        return repository?.fetchData() ?? []
     }
 }
