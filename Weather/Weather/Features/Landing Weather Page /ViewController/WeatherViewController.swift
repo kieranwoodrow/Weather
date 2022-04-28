@@ -44,6 +44,10 @@ class WeatherViewController: UIViewController {
         toggleThemes(theme: theme, weatherCondition: weatherViewModel.condition.lowercased())
     }
     
+    @IBAction private func saveButton(_ sender: Any) {
+        weatherViewModel.handleSaveRequest()
+    }
+    
     func setCoreLocation() {
         
         locationManager.delegate = self
@@ -57,9 +61,9 @@ class WeatherViewController: UIViewController {
     }
     
     private func setWeatherViewModel(latitude: String, longitude: String) {
-        
-        weatherViewModel.weatherList(lat: latitude, long: longitude)
-        weatherViewModel.weather(lat: latitude, long: longitude)
+        weatherViewModel.set(lat: latitude, long: longitude)
+        weatherViewModel.weatherList()
+        weatherViewModel.weather()
     }
     
     private func setLabels() {

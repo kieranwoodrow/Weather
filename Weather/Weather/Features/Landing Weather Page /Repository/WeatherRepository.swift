@@ -9,13 +9,19 @@ import Foundation
 
 typealias ForcastedWeather = (Result<WeatherList, CustomError>) -> Void
 typealias CurrentWeather = (Result<WeatherResponse, CustomError>) -> Void
+typealias SaveLocationResult = (Result<Bool, CustomError>) -> Void
 
 protocol WeatherRepositoryType: AnyObject {
     func fetchForcastedWeather(lat: String, long: String, completion: @escaping(ForcastedWeather))
     func fetchCurrentWeather(lat: String, long: String, completion: @escaping (CurrentWeather))
+    func saveLocation(latitude: String, longitude: String, completion: @escaping(SaveLocationResult))
+    func fetchData() -> [Location]
 }
 
 class WeatherRepository: WeatherRepositoryType {
+    
+    private var successFulLocationSave: Bool = false
+    private var items: [Location] = []
     func fetchForcastedWeather(lat: String, long: String, completion: @escaping (ForcastedWeather)) {
         let url = Endpoint().forcast(lat: lat, long: long)
         request(endpoint: url,
@@ -42,5 +48,32 @@ class WeatherRepository: WeatherRepositoryType {
         request.httpMethod = "\(method)"
         request.allHTTPHeaderFields = ["Content-Type": "application/json"]
         serviceCall(with: request, model: T.self, completion: completion)
+    }
+    
+    func saveLocation(latitude: String, longitude: String, completion: @escaping(SaveLocationResult)) {
+        
+        guard let safeCoreData = Constants.coreDataPersistantObject else { return }
+        let location = Location(context: safeCoreData)
+        location.latitude = latitude
+        location.longitude = longitude
+        
+        do {
+            try Constants.coreDataPersistantObject?.save()
+            self.successFulLocationSave = true
+            completion(Result.success(successFulLocationSave))
+        } catch {
+            completion(Result.failure(.coreDataUnsuccessfulSave))
+        }
+    }
+    
+    func fetchData() -> [Location] {
+        
+        do {
+            self.items = try Constants.coreDataPersistantObject?.fetch(Location.fetchRequest()) ?? []
+            
+        } catch {
+            
+        }
+        return items
     }
 }
