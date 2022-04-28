@@ -103,6 +103,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D65B630D281AF417007199AB /* Saved Locations */ = {
+			isa = PBXGroup;
+			children = (
+				D65B6312281AF479007199AB /* Custom UI */,
+				D65B6311281AF468007199AB /* ViewModel */,
+				D65B6310281AF453007199AB /* ViewController */,
+				D65B630E281AF422007199AB /* Repository */,
+			);
+			path = "Saved Locations";
+			sourceTree = "<group>";
+		};
+		D65B630E281AF422007199AB /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		D65B6310281AF453007199AB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D65B6311281AF468007199AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D65B6312281AF479007199AB /* Custom UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom UI";
+			sourceTree = "<group>";
+		};
 		D6E12DDE2811595F00C8D13F = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +249,7 @@
 		D6E12E232811648A00C8D13F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				D65B630D281AF417007199AB /* Saved Locations */,
 				D6E12E512815AB5400C8D13F /* Landing Weather Page  */,
 			);
 			path = Features;
