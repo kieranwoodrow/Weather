@@ -134,6 +134,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension WeatherViewController:  ViewModelDelegate {
+    
     func reloadView() {
         setLabels()
         self.forcastedTableView.reloadData()
