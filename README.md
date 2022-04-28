@@ -25,7 +25,7 @@ master ( buid )
 
 ## Build badges ✅
 
-[![Build Status](https://app.bitrise.io/app/4e0161a5c8f694d5/status.svg?token=8f2ggYI3nSdAU_vVDknSsA&branch=main)]
+![Build Status](https://app.bitrise.io/app/4e0161a5c8f694d5/status.svg?token=8f2ggYI3nSdAU_vVDknSsA&branch=main)
 
 ## :hammer_and_wrench: Technology Stack
 
