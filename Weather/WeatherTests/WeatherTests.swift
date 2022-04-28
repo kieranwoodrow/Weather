@@ -19,166 +19,166 @@ class WeatherTests: XCTestCase {
     func testWeatherListCountReturnsCorrectNumberOfWeatherResponses() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.weatherListCount, 2)
     }
     
     func testWeatherListCountReturnsZeroIfApiCallFailsToPopulateWeatherList() {
         repository.failed = true
         repository.selectedEmptyWeather = true
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.weatherListCount, 0)
     }
     
     func testUpcomingDaysListCountReturnsCorrectNumberOfDays() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.upcomingDaysCount, 5)
     }
     
     func testForcastedWeatherTemperatureReturnsCorrectValue() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.forcastedTemp(atIndex: 0), Int(12.82))
     }
     
     func testForcastedWeatherTemperatureReturnsZeroIfNil() {
         repository.failed = false
         repository.selectedEmptyWeather = true
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.forcastedTemp(atIndex: 0), 0)
     }
     
     func testForcastedWeatherConditionReturnsCorrectCondition() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.forcastedCondition(atIndex: 0), "Cloudy")
     }
     func testForcastedWeatherConditionsReturnsPlaceholderIfNil() {
         repository.failed = false
         repository.selectedEmptyWeather = true
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.forcastedCondition(atIndex: 0), "--")
     }
     
     func testCurrentWeatherTemperatureReturnsCorrectValue() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weather()
+        viewModel.weather(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.currentTemp, Int(18.89))
     }
     
     func testCurrentWeatherTemperatureReturnsZeroIfNil() {
         repository.failed = false
         repository.selectedEmptyWeather = true
-        viewModel.weather()
+        viewModel.weather(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.currentTemp, Int(0.0))
     }
     
     func testMinWeatherTemperatureReturnsCorrectValue() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weather()
+        viewModel.weather(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.minTemp, Int(15.88))
     }
     
     func testMinWeatherTemperatureReturnsZeroIfNil() {
         repository.failed = false
         repository.selectedEmptyWeather = true
-        viewModel.weather()
+        viewModel.weather(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.minTemp, Int(0.0))
     }
     
     func testMaxWeatherTemperatureReturnsCorrectValue() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weather()
+        viewModel.weather(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.maxTemp, Int(19.11))
     }
     
     func testMaxWeatherTemperatureReturnsZeroIfNil() {
         repository.failed = false
         repository.selectedEmptyWeather = true
-        viewModel.weather()
+        viewModel.weather(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.maxTemp, Int(0.0))
     }
     
     func testWeatherConditionReturnsCorrectCondition() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weather()
+        viewModel.weather(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.condition, "Cloudy")
     }
     
     func testWeatherConditionReturnsEmptyPlaceholderIfNil() {
         repository.failed = false
         repository.selectedEmptyWeather = true
-        viewModel.weather()
+        viewModel.weather(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.condition, "--")
     }
     
     func testForrestBackgroundImageReturnsCorrectImage() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.forrestBackgroundImage(condition: "clear"), "SunnyForrest")
     }
     
     func testSeaBackgroundImageReturnsCorrectImage() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.seaBackgroundImage(condition: "clear"), "SunnySea")
     }
     
     func testForrestBackgroundColourReturnsColour() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.forrestBackgroundColour(condition: "clear"), "Sunny")
     }
     
     func testSeaBackgroundColourReturnsColour() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.seaBackgroundColour(condition: "clear"), "Ocean")
     }
     
     func testToggleThemesFunctionReturnsCorrectArray() {
         repository.failed = false
         repository.selectedEmptyWeather = false
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssertEqual(viewModel.toggleThemes(theme: "forrest", condition: "clear"), ["SunnyForrest", "Sunny"])
     }
     
     func testWeatherListSuccess() {
         repository.failed = false
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssert(delegate.reloadViewCalled)
         XCTAssertFalse(delegate.showErrorCalled)
     }
     
     func testWeatherListSuccessFailure() {
         repository.failed = true
-        viewModel.weatherList()
+        viewModel.weatherList(lat: "-26.20", long: "28.05")
         XCTAssert(delegate.showErrorCalled)
         XCTAssertFalse(delegate.reloadViewCalled)
     }
     
     func testWeatherSuccess() {
         repository.failed = false
-        viewModel.weather()
+        viewModel.weather(lat: "-26.20", long: "28.05")
         XCTAssert(delegate.reloadViewCalled)
         XCTAssertFalse(delegate.showErrorCalled)
     }
     
     func testWeatherFailure() {
         repository.failed = true
-        viewModel.weather()
+        viewModel.weather(lat: "-26.20", long: "28.05")
         XCTAssert(delegate.showErrorCalled)
         XCTAssertFalse(delegate.reloadViewCalled)
     }

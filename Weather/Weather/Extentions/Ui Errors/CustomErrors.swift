@@ -14,6 +14,8 @@ enum CustomError: Error, LocalizedError {
     case internalError
     case parsingError
     case unsuccessfullWeatherApiCall
+    case coreLocationNotFound
+    case coreLocationDenied
     
     var errorDescription: String {
         switch self {
@@ -27,6 +29,10 @@ enum CustomError: Error, LocalizedError {
             return "Passing error"
         case .unsuccessfullWeatherApiCall:
             return "Api call was unsuccessful"
+        case .coreLocationNotFound:
+            return "Coordinates cannot be found. Please make sure location services are on and you have signal"
+        case .coreLocationDenied:
+            return "We will not be able to track the weather in your area"
         }
     }
     
@@ -42,6 +48,10 @@ enum CustomError: Error, LocalizedError {
             return "There was an error decoding the data from the API "
         case .unsuccessfullWeatherApiCall:
             return "There was an error retrieving the weather data "
+        case .coreLocationNotFound:
+            return "There was an error retrieving the gps coordinates "
+        case .coreLocationDenied:
+            return "Location needs to be enabed"
         }
     }
 }

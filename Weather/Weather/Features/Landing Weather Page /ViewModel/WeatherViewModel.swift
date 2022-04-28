@@ -146,8 +146,8 @@ class WeatherViewModel {
         return [themeImage, themeColour]
     }
     
-    func weather() {
-        repository?.fetchCurrentWeather(lat: "-26.02", long: "28.00", completion: { [weak self] result in
+    func weather(lat: String, long: String) {
+        repository?.fetchCurrentWeather(lat: lat, long: long, completion: { [weak self] result in
             switch result {
             case .success(let weather):
                 self?.currentWeather = weather
@@ -158,8 +158,8 @@ class WeatherViewModel {
         })
     }
     
-    func weatherList() {
-        repository?.fetchForcastedWeather(lat: "-26.02", long: "28.00", completion: { [weak self] result in
+    func weatherList(lat: String, long: String) {
+        repository?.fetchForcastedWeather(lat: lat, long: long, completion: { [weak self] result in
             switch result {
             case .success(let weatherList):
                 self?.forcastedWeather = weatherList
