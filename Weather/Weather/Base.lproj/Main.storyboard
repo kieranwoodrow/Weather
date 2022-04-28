@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +23,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ylx-N6-cMq">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CloudyForrest" translatesAutoresizingMaskIntoConstraints="NO" id="4Hc-IR-Hjz">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Hc-IR-Hjz">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ata-fi-4Bg">
@@ -54,17 +53,49 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="I7t-qa-NVt">
+                                                <rect key="frame" x="254" y="19" width="152" height="31"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPi-Oh-u8c">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70.5" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Forrest"/>
+                                                        <connections>
+                                                            <action selector="forrestButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p7L-sO-qPB"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7j-xD-46W">
+                                                        <rect key="frame" x="81.5" y="0.0" width="70.5" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Sea"/>
+                                                        <connections>
+                                                            <action selector="seaButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PNy-to-Z7k"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e9-aE-Z1R">
+                                                <rect key="frame" x="22" y="19" width="114.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Save Location"/>
+                                                <connections>
+                                                    <action selector="saveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RaQ-Gh-Y9G"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="Cloudy"/>
                                         <constraints>
                                             <constraint firstItem="ata-fi-4Bg" firstAttribute="top" secondItem="Ylx-N6-cMq" secondAttribute="top" constant="92" id="1ng-0j-dw5"/>
                                             <constraint firstItem="ata-fi-4Bg" firstAttribute="leading" secondItem="Ylx-N6-cMq" secondAttribute="leading" constant="107" id="58m-II-uIp"/>
                                             <constraint firstItem="4Hc-IR-Hjz" firstAttribute="leading" secondItem="Ylx-N6-cMq" secondAttribute="leading" id="5PT-XE-3Um"/>
+                                            <constraint firstAttribute="trailing" secondItem="I7t-qa-NVt" secondAttribute="trailing" constant="8" id="7ld-NO-8X9"/>
+                                            <constraint firstItem="1e9-aE-Z1R" firstAttribute="top" secondItem="Ylx-N6-cMq" secondAttribute="top" constant="19" id="IsS-OJ-e2J"/>
                                             <constraint firstAttribute="trailing" secondItem="4Hc-IR-Hjz" secondAttribute="trailing" id="OoF-sF-QQ7"/>
+                                            <constraint firstItem="I7t-qa-NVt" firstAttribute="top" secondItem="Ylx-N6-cMq" secondAttribute="top" constant="19" id="bmo-UK-Twk"/>
                                             <constraint firstAttribute="bottom" secondItem="4Hc-IR-Hjz" secondAttribute="bottom" id="mnK-jW-ygy"/>
                                             <constraint firstItem="ata-fi-4Bg" firstAttribute="centerX" secondItem="Ylx-N6-cMq" secondAttribute="centerX" id="pZ5-ma-0Kc"/>
                                             <constraint firstItem="4Hc-IR-Hjz" firstAttribute="top" secondItem="Ylx-N6-cMq" secondAttribute="top" id="wHq-e0-Cku"/>
                                             <constraint firstAttribute="trailing" secondItem="ata-fi-4Bg" secondAttribute="trailing" constant="107" id="xJ5-z5-821"/>
+                                            <constraint firstItem="1e9-aE-Z1R" firstAttribute="leading" secondItem="Ylx-N6-cMq" secondAttribute="leading" constant="22" id="zV4-J8-ywP"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IEd-Ws-aJW">
@@ -162,7 +193,7 @@
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kfu-pk-vWj">
                                                 <rect key="frame" x="20" y="69" width="374" height="317"/>
-                                                <color key="backgroundColor" name="Cloudy"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="317" id="F8K-jm-JB5"/>
                                                 </constraints>
@@ -210,7 +241,6 @@
                                                                 <constraint firstItem="95R-5G-8ej" firstAttribute="top" secondItem="dIA-Od-ZYk" secondAttribute="top" id="pEe-A7-g4k"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
-                                                        <color key="backgroundColor" name="Cloudy"/>
                                                         <connections>
                                                             <outlet property="day" destination="7FR-2d-VOv" id="bk8-gN-Q07"/>
                                                             <outlet property="temperature" destination="5ey-yK-xs4" id="Lyx-DS-H4D"/>
@@ -220,7 +250,6 @@
                                                 </prototypes>
                                             </tableView>
                                         </subviews>
-                                        <color key="backgroundColor" name="Cloudy"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Wcc-wj-RbX" secondAttribute="trailing" constant="10" id="3l5-kt-b4d"/>
                                             <constraint firstItem="Kfu-pk-vWj" firstAttribute="top" relation="lessThanOrEqual" secondItem="Wcc-wj-RbX" secondAttribute="bottom" constant="20" id="6My-E9-nc5"/>
@@ -232,7 +261,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="Cloudy"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Ylx-N6-cMq" secondAttribute="trailing" id="3bS-6o-THC"/>
                                     <constraint firstItem="Ylx-N6-cMq" firstAttribute="leading" secondItem="2p4-EH-s9o" secondAttribute="leading" id="UAl-Lr-w15"/>
@@ -250,13 +278,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomView" destination="IEd-Ws-aJW" id="2nG-Ef-kMh"/>
                         <outlet property="currentTemp" destination="3kY-ud-Oii" id="o4u-QW-WLS"/>
-                        <outlet property="currentTempView" destination="Wcc-wj-RbX" id="Z18-wT-Oj0"/>
+                        <outlet property="currentTemperatureView" destination="Wcc-wj-RbX" id="8dq-ai-6rw"/>
                         <outlet property="forcastedTableView" destination="Kfu-pk-vWj" id="IdY-eE-nIu"/>
                         <outlet property="maxTemp" destination="IHO-35-ftX" id="lYu-6V-Lmy"/>
                         <outlet property="minTemp" destination="GO6-OV-GaS" id="Rua-o8-1LT"/>
                         <outlet property="tempCondition" destination="71h-RD-XZ9" id="f2n-cl-9Sh"/>
                         <outlet property="tempValue" destination="5Mz-kx-gzg" id="rwX-YZ-bUr"/>
+                        <outlet property="themeImage" destination="4Hc-IR-Hjz" id="MSL-m5-pmt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -265,11 +295,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CloudyForrest" width="180" height="160.5"/>
         <image name="circle" catalog="system" width="128" height="121"/>
-        <namedColor name="Cloudy">
-            <color red="0.32899999618530273" green="0.44299998879432678" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
