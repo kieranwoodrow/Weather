@@ -23,9 +23,9 @@ master ( buid )
 </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- develop-feature
 
-## :bar_chart: Code Quality
+## Build badges ✅
 
--badges and actions go here
+![Build Status](https://app.bitrise.io/app/4e0161a5c8f694d5/status.svg?token=8f2ggYI3nSdAU_vVDknSsA&branch=master)
 
 ## :hammer_and_wrench: Technology Stack
 
@@ -55,11 +55,6 @@ master ( buid )
 
 ### Testing Tools
 ![AGPL License](https://img.shields.io/badge/Bitrise-683D87?style=for-the-badge&logo=git&logoColor=white)
-
-## Build badges ✅
-![Build Status](https://app.bitrise.io/app/4e0161a5c8f694d5/status.svg?token=375pMdYZh2rK44gKKz7xnA&branch=main)
-
-
 
 ### Version Control Tools
 ![AGPL License](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
