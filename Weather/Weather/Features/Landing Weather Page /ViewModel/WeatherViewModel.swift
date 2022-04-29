@@ -65,6 +65,10 @@ class WeatherViewModel {
     func forcastedCondition(atIndex: Int) -> String {
         return forcastedWeather?.weatherList?[0].weather?[0].weatherDescription ?? "--"
     }
+  
+    var forcastedTemp: Int {
+        return Int(forcastedWeather?.weatherList?[0].temperature?.currentTemp ?? 0.0)
+    }
     
     var currentTemp: Int {
         return Int(currentWeather?.temperature?.currentTemp ?? 0.0)

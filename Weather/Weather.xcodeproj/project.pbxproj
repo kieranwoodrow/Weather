@@ -351,7 +351,7 @@
 		D6E12E612816C70800C8D13F /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
-				D6E12E7028196CED00C8D13F /* ForcastedTableViewCell.swift */,
+				D6E12EA5281AF0E300C8D13F /* ForcastedTableViewCell.swift */,
 			);
 			path = "Custom UI";
 			sourceTree = "<group>";
@@ -588,6 +588,7 @@
 				D6E12E5E2815EE9A00C8D13F /* WeatherViewModel.swift in Sources */,
 				D6E12E5028153DBC00C8D13F /* Endpoint.swift in Sources */,
 				D6E12E352812A47100C8D13F /* ServiceLayerEnums.swift in Sources */,
+				D6E12EA6281AF0E300C8D13F /* ForcastedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
