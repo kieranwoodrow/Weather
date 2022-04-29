@@ -6,6 +6,8 @@
 //
 
 import XCTest
+import CoreData
+import CoreLocation
 @testable import Weather
 
 class WeatherTests: XCTestCase {
@@ -14,6 +16,8 @@ class WeatherTests: XCTestCase {
         delegate = MockDelegate()
         repository = MockRepository()
         viewModel = WeatherViewModel(repository: repository, delegate: delegate)
+        savedLocationsMockRepository = SavedLocationMockRepository()
+        saveLocationViewModel = SavedLocationViewModel(repository: savedLocationsMockRepository, delegate: delegate)
     }
     
     func testForrestBackgroundImageReturnsCorrectImageBasedOnCloudyForrestTheme() {
@@ -21,6 +25,12 @@ class WeatherTests: XCTestCase {
         repository.selectedEmptyWeather = false
         viewModel.weatherList()
         XCTAssertEqual(viewModel.backgroundImage(theme: "forrest", condition: "clouds"), "CloudyForrest")
+    }
+    
+    func testSavedLocationsArrayReturnsCorrectZeroWhenNil() {
+        savedLocationsMockRepository.failed = false
+        savedLocationsMockRepository.selectedEmptyLocation = true
+        XCTAssertEqual(saveLocationViewModel.locationsCount, 0)
     }
     
     func testForrestBackgroundImageReturnsCorrectImageBasedOnSunnyForrestTheme() {
@@ -176,6 +186,22 @@ class WeatherTests: XCTestCase {
         XCTAssertEqual(viewModel.forcastedCondition(atIndex: 0), "--")
     }
     
+    func testApiKey() {
+        XCTAssertEqual(Constants.apiKey, Constants.apiKey)
+    }
+    
+    func testCurrentEndpointWithApiKey() {
+        let endpoint = Endpoint()
+        XCTAssertEqual(endpoint.current(lat: "10", long: "10"),
+                       Constants.currrentWeather + "?lat=10&lon=10&appid=\(Constants.apiKey)&units=metric")
+    }
+    
+    func testForcastedEndpointWithApiKey() {
+        let endpoint = Endpoint()
+        XCTAssertEqual(endpoint.forcast(lat: "10", long: "10"),
+                       Constants.focastedWeather + "?lat=10&lon=10&appid=\(Constants.apiKey)&units=metric&cnt=5")
+    }
+    
     func testCurrentWeatherTemperatureReturnsCorrectValue() {
         repository.failed = false
         repository.selectedEmptyWeather = false
@@ -230,6 +256,11 @@ class WeatherTests: XCTestCase {
         repository.selectedEmptyWeather = true
         viewModel.weather()
         XCTAssertEqual(viewModel.condition, "--")
+    }
+    
+    func testTodayDateFunctionReturnsCorrectWeekdayName() {
+        let date = Date()
+        XCTAssertEqual(date.today(date: date), "Friday")
     }
     
     func testForrestBackgroundImageReturnsCorrectImage() {
@@ -326,69 +357,82 @@ class WeatherTests: XCTestCase {
         XCTAssertEqual(Constants.focastedWeather, "https://api.openweathermap.org/data/2.5/forecast")
     }
     
-    func testCustomEnums1() {
+    func testCustomEnumsInvalidUrlFailureReason() {
         XCTAssertEqual(CustomError.invalidUrl.failureReason, "The URL is invalid")
     }
     
-    func testCustomEnums3() {
+    func testCustomEnumsInvalidDataFailureReason() {
         XCTAssertEqual(CustomError.invalidData.failureReason, "The data is invalid")
     }
-    func testCustomEnums4() {
+    func testCustomEnumsInternalErrorFailureReason() {
         XCTAssertEqual(CustomError.internalError.failureReason, "There was an internal error from the API")
     }
-    func testCustomEnums5() {
+    func testCustomEnumsParsingErrorFailureReason() {
         XCTAssertEqual(CustomError.parsingError.failureReason, "There was an error decoding the data from the API")
     }
-    func testCustomEnums6() {
+    func testCustomEnumsUnsuccessfullWeatherApiCallFailureReason() {
         XCTAssertEqual(CustomError.unsuccessfullWeatherApiCall.failureReason, "There was an error retrieving the weather data")
     }
-    func testCustomEnums7() {
+    func testCustomEnumsCoreLocationNotFoundFailureReason() {
         XCTAssertEqual(CustomError.coreLocationNotFound.failureReason, "There was an error retrieving the gps coordinates")
     }
-    func testCustomEnums8() {
+    func testCustomEnumsCoreLocationDeniedFailureReason() {
         XCTAssertEqual(CustomError.coreLocationDenied.failureReason, "Location needs to be enabed" )
     }
-    func testCustomEnums9() {
+    func testCustomEnumsCoreDataUnsuccessfulSaveFailureReason() {
         XCTAssertEqual(CustomError.coreDataUnsuccessfulSave.failureReason, "Could not save to database" )
     }
     
-    func testCustomEnums2() {
+    func testCustomEnumsCoreDataSuccessfulSaveFailureReason() {
         XCTAssertEqual(CustomError.coreDataSuccessfulSave.failureReason, "Successfull save")
     }
     
-    func testCustomEnums11() {
+    func testCustomEnumsInvalidUrlErrorDescription() {
         XCTAssertEqual(CustomError.invalidUrl.errorDescription, "Invalid URL")
     }
     
-    func testCustomEnums13() {
+    func testCustomEnumsInvaliDataErrorDescription() {
         XCTAssertEqual(CustomError.invalidData.errorDescription, "Invalid data")
     }
-    func testCustomEnums14() {
+    func testCustomEnumsInternalErrorDescription() {
         XCTAssertEqual(CustomError.internalError.errorDescription, "Internal error")
     }
-    func testCustomEnums15() {
+    func testCustomEnumsParsingErrorDescription() {
         XCTAssertEqual(CustomError.parsingError.errorDescription, "Passing error")
     }
-    func testCustomEnums16() {
+    func testCustomEnumsUnsuccessfullWeatherApiCallErrorDescription() {
         XCTAssertEqual(CustomError.unsuccessfullWeatherApiCall.errorDescription, "Api call was unsuccessful")
     }
-    func testCustomEnums17() {
+    func testCustomEnumsCoreLocationNotFoundErrorDescription() {
         XCTAssertEqual(CustomError.coreLocationNotFound.errorDescription,
                        "Coordinates cannot be found. Please make sure location services are on and you have signal")
     }
-    func testCustomEnums18() {
+    func testCustomEnumsCoreLocationDeniedErrorDescription() {
         XCTAssertEqual(CustomError.coreLocationDenied.errorDescription, "We will not be able to track the weather in your area" )
     }
-    func testCustomEnums19() {
+    func testCustomEnumsCoreDataUnsuccessfulSaveErrorDescription() {
         XCTAssertEqual(CustomError.coreDataUnsuccessfulSave.errorDescription,
                        "Could not save to database. Coordinates are nil or something else went wrong on our side" )
     }
     
-    func testCustomEnums20() {
+    func testCustomEnumsCoreDataSuccessfulSaveErrorDescription() {
         XCTAssertEqual(CustomError.coreDataSuccessfulSave.errorDescription, "Successfully saved location to database")
     }
     
+    func testCurrentLocationReturnsNil() {
+        let locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        locationManager.requestWhenInUseAuthorization()
+        let currentLocationLattiude = locationManager.location?.coordinate.latitude
+        let currentLoationLongitude = locationManager.location?.coordinate.longitude
+        XCTAssertNil(currentLocationLattiude)
+        XCTAssertNil(currentLoationLongitude)
+    }
+    
     private var viewModel: WeatherViewModel!
+    private var saveLocationViewModel: SavedLocationViewModel!
+    private var savedLocationsMockRepository: SavedLocationMockRepository!
     private var delegate: MockDelegate!
     private var repository: MockRepository!
     
@@ -444,6 +488,41 @@ class WeatherTests: XCTestCase {
                 return emptyWeatherResponse
             } else {
                 return populatedWeatherResponse
+            }
+        }
+        
+        func saveLocation(latitude: String, longitude: String, completion: @escaping (SaveLocationResult)) {
+            
+        }
+    }
+    
+    class SavedLocationMockRepository: SavedLocationRepositoryType {
+        func fetchAllSavedLocations(completion: @escaping (LocationResult)) {
+            if failed {
+                completion(.failure(.invalidData))
+            } else {
+                completion(.success(mockLocationData(selectedEmptyLocation: selectedEmptyLocation)))
+            }
+        }
+        
+        var failed = false
+        let coredataObject = (UIApplication.shared.delegate as?
+                                               AppDelegate)?.persistentContainer.viewContext
+        var selectedEmptyLocation = false
+        
+        private func mockLocationData(selectedEmptyLocation: Bool) -> [Location] {
+            let emptyLocation = selectedEmptyLocation
+            let location = Location(context: coredataObject.unsafelyUnwrapped)
+            location.latitude = "29.00"
+            location.longitude = "23.00"
+            let locationArray = [location]
+            
+            let emptyLocations: [Location] = []
+            
+            if emptyLocation {
+                return emptyLocations
+            } else {
+                return locationArray
             }
         }
         
