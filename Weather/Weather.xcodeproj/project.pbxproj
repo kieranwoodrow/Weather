@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D60768EF281C2F6C009A5321 /* OfflineMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60768EE281C2F6C009A5321 /* OfflineMode.swift */; };
 		D65B6314281AF4FB007199AB /* SavedLocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B6313281AF4FB007199AB /* SavedLocationRepository.swift */; };
 		D65B6316281AF5A9007199AB /* SavedLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B6315281AF5A9007199AB /* SavedLocationViewModel.swift */; };
 		D65B6318281AF768007199AB /* SavedLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B6317281AF768007199AB /* SavedLocationViewController.swift */; };
@@ -32,9 +33,7 @@
 		D6E12E602815EEAD00C8D13F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E5F2815EEAD00C8D13F /* WeatherViewController.swift */; };
 		D6E12E6C2819413600C8D13F /* Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E6B2819413600C8D13F /* Borders.swift */; };
 		D6E12E6F281943C500C8D13F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E6E281943C500C8D13F /* Date.swift */; };
-		D6E12EA3281AC84E00C8D13F /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12EA1281AC84E00C8D13F /* Location+CoreDataClass.swift */; };
-		D6E12EA4281AC84E00C8D13F /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12EA2281AC84E00C8D13F /* Location+CoreDataProperties.swift */; };
-		D6E12EA6281AF0E300C8D13F /* ForcastedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12EA5281AF0E300C8D13F /* ForcastedTableViewCell.swift */; };
+		D6E12E7128196CED00C8D13F /* ForcastedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E12E7028196CED00C8D13F /* ForcastedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D60768EE281C2F6C009A5321 /* OfflineMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineMode.swift; sourceTree = "<group>"; };
 		D65B6313281AF4FB007199AB /* SavedLocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationRepository.swift; sourceTree = "<group>"; };
 		D65B6315281AF5A9007199AB /* SavedLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationViewModel.swift; sourceTree = "<group>"; };
 		D65B6317281AF768007199AB /* SavedLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationViewController.swift; sourceTree = "<group>"; };
@@ -85,9 +85,7 @@
 		D6E12E5F2815EEAD00C8D13F /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		D6E12E6B2819413600C8D13F /* Borders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borders.swift; sourceTree = "<group>"; };
 		D6E12E6E281943C500C8D13F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		D6E12EA1281AC84E00C8D13F /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D6E12EA2281AC84E00C8D13F /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D6E12EA5281AF0E300C8D13F /* ForcastedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastedTableViewCell.swift; sourceTree = "<group>"; };
+		D6E12E7028196CED00C8D13F /* ForcastedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +113,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D60768EC281C2E7A009A5321 /* Offline Data */ = {
+			isa = PBXGroup;
+			children = (
+				D60768ED281C2E8A009A5321 /* Repository */,
+			);
+			path = "Offline Data";
+			sourceTree = "<group>";
+		};
+		D60768ED281C2E8A009A5321 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D60768EE281C2F6C009A5321 /* OfflineMode.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		D65B630D281AF417007199AB /* Saved Locations */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,8 +263,6 @@
 		D6E12E2128115B8400C8D13F /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				D6E12EA2281AC84E00C8D13F /* Location+CoreDataProperties.swift */,
-				D6E12EA1281AC84E00C8D13F /* Location+CoreDataClass.swift */,
 				D6E12DF32811595F00C8D13F /* Weather.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -267,6 +279,7 @@
 		D6E12E232811648A00C8D13F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				D60768EC281C2E7A009A5321 /* Offline Data */,
 				D65B630D281AF417007199AB /* Saved Locations */,
 				D6E12E512815AB5400C8D13F /* Landing Weather Page  */,
 			);
@@ -560,8 +573,9 @@
 				D6E12E602815EEAD00C8D13F /* WeatherViewController.swift in Sources */,
 				D65B6316281AF5A9007199AB /* SavedLocationViewModel.swift in Sources */,
 				D6E12DF52811595F00C8D13F /* Weather.xcdatamodeld in Sources */,
-				D6E12EA3281AC84E00C8D13F /* Location+CoreDataClass.swift in Sources */,
 				D6E12E2F2811F44D00C8D13F /* CustomErrors.swift in Sources */,
+				D6E12E7128196CED00C8D13F /* ForcastedTableViewCell.swift in Sources */,
+				D60768EF281C2F6C009A5321 /* OfflineMode.swift in Sources */,
 				D6E12E5B2815EE7A00C8D13F /* WeatherModel.swift in Sources */,
 				D6E12E332812A44700C8D13F /* ServiceLayerCall.swift in Sources */,
 				D6E12E402814379F00C8D13F /* Constants.swift in Sources */,
@@ -571,7 +585,6 @@
 				D6E12DEB2811595F00C8D13F /* AppDelegate.swift in Sources */,
 				D6E12DED2811595F00C8D13F /* SceneDelegate.swift in Sources */,
 				D6E12E532815B00F00C8D13F /* Apikey.swift in Sources */,
-				D6E12EA4281AC84E00C8D13F /* Location+CoreDataProperties.swift in Sources */,
 				D6E12E5E2815EE9A00C8D13F /* WeatherViewModel.swift in Sources */,
 				D6E12E5028153DBC00C8D13F /* Endpoint.swift in Sources */,
 				D6E12E352812A47100C8D13F /* ServiceLayerEnums.swift in Sources */,
