@@ -7,7 +7,7 @@
         <attribute name="minTemp" optional="YES" attributeType="String"/>
         <attribute name="timeWhenSaved" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Location" representedClassName="Location" syncable="YES">
+    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
         <attribute name="latitude" optional="YES" attributeType="String"/>
         <attribute name="longitude" optional="YES" attributeType="String"/>
     </entity>
