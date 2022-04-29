@@ -537,8 +537,8 @@ class WeatherTests: XCTestCase {
     }
     
     class MockDelegate: ViewModelDelegate {
-        var showErrorCalled = false
         var reloadViewCalled = false
+        var showErrorCalled = false
         
         func reloadView() {
             reloadViewCalled = true
